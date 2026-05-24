@@ -53,6 +53,17 @@
               EN
             </span>
           </button>
+          <button
+            class=" pl-2"
+            type="button"
+            :title="isDark ? t('common.themeLight') : t('common.themeDark')"
+            @click="changeTheme(isDark ? 'light' : 'dark')"
+          >
+            <VIcon
+              :icon="isDark ? 'mdi-white-balance-sunny' : 'mdi-weather-night'"
+              size="22"
+            />
+          </button>
         </div>
         <VBtn
           v-if="!user && !isCompact"
@@ -66,7 +77,7 @@
             alt="avatar"
           />
           <template v-if="width >= 640">
-            <span class="ml-2 hidden sm:inline">{{ "未登入" }}</span>
+            <span class="ml-2 hidden sm:inline">{{ t('common.notLoggedIn') }}</span>
           </template>
         </VBtn>
         <VMenu v-if="user && !isCompact">
@@ -181,21 +192,6 @@
       </div>
     </div>
   </header>
-  <VBtn
-    class="theme-fab"
-    color="primary"
-    icon
-    size="large"
-    elevation="8"
-    :title="isDark ? t('common.themeLight') : t('common.themeDark')"
-    @click="changeTheme(isDark ? 'light' : 'dark')"
-  >
-    <VIcon
-      :icon="isDark ? 'mdi-white-balance-sunny' : 'mdi-weather-night'"
-      size="22"
-    />
-  </VBtn>
-
   <ClientOnly>
     <LoginDialog v-model="loginOpen" />
   </ClientOnly>
@@ -269,8 +265,6 @@ async function changeLocale(code: LocaleCode) {
 
 async function confirmLogout() {
   if (!import.meta.client) return;
-  const ok = await toast.confirm(t("auth.confirmLogout"));
-  if (!ok) return;
   drawer.value = false;
   await logout();
 }

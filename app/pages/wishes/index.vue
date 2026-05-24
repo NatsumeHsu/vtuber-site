@@ -160,6 +160,7 @@
           {{ t("wishes.create") }}
         </NuxtLink>
       </div>
+
     </div>
 
     <div
@@ -659,7 +660,7 @@ onBeforeUnmount(() => {
 }
 
 .page-header {
-  @apply mb-6 flex flex-wrap items-center justify-between gap-4;
+  @apply mb-6 gap-4;
 }
 
 .page-title {
@@ -688,7 +689,7 @@ onBeforeUnmount(() => {
 }
 
 .wish-search-input {
-  @apply w-full min-w-0 bg-transparent text-sm;
+  @apply w-fit bg-transparent text-sm;
   border: 0;
   color: rgb(var(--v-theme-on-surface));
   outline: none;

@@ -5,6 +5,7 @@
     "confirm": "Confirm",
     "login": "Log in",
     "logout": "Log out",
+    "notLoggedIn": "Not logged in",
     "account": "Account Settings",
     "submitWish": "Submit Wish",
     "manageWish": "Manage Posts",
@@ -19,9 +20,6 @@
     "wishes": "Blessing Wall",
     "search": "Search",
     "about": "About"
-  },
-  "auth": {
-    "confirmLogout": "Do you want to log out?"
   },
   "authGooglePage": {
     "title": "Processing Google Sign-in",

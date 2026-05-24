@@ -67,9 +67,6 @@
           :loading="loading === 'google'"
           @click="oauthSignIn('google')"
         >
-          <template #prepend>
-            <VIcon icon="mdi-google" color="#4285F4"/>
-          </template>
           {{ t("loginForm.oauth.google") }}
         </VBtn>
         <VBtn
@@ -79,9 +76,6 @@
           :loading="loading === 'discord'"
           @click="oauthSignIn('discord')"
         >
-          <template #prepend>
-            <VIcon icon="mdi-discord" color="#5865F2" />
-          </template>
           {{ t("loginForm.oauth.discord") }}
         </VBtn>
       </div>

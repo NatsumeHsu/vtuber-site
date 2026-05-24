@@ -5,6 +5,7 @@
     "confirm": "確定",
     "login": "登入",
     "logout": "登出",
+    "notLoggedIn": "未登入",
     "account": "帳號設定",
     "submitWish": "投稿祝福",
     "manageWish": "管理投稿",
@@ -19,9 +20,6 @@
     "wishes": "祝福牆",
     "search": "搜尋",
     "about": "關於我們"
-  },
-  "auth": {
-    "confirmLogout": "確定要登出嗎？"
   },
   "authGooglePage": {
     "title": "Google 登入處理中",
