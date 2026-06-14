@@ -7,8 +7,8 @@
       ]"
     >
       <NavBar />
-      <main class="flex-1">
-        <div class="text-primary-900">
+      <main class="app-main">
+        <div class="app-page-scroll-host">
           <NuxtPage />
         </div>
       </main>
@@ -39,6 +39,26 @@ const year = new Date().getFullYear();
 </script>
 
 <style lang="scss">
+.app-shell {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background-image: url("/hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.app-page-scroll-host {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .app-shell--guest {
   background-image:
     radial-gradient(

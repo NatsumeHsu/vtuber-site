@@ -82,6 +82,7 @@ export default defineNuxtConfig({
     "assets/styles/layers.css",
     "vuetify/styles",
     "assets/styles/tailwind.css",
+    "assets/styles/main.scss",
   ],
   vuetify: {
     moduleOptions: {

@@ -1,12 +1,6 @@
 <template>
-  <header
-    :class="[
-      'sticky top-0 z-40 border-b border-primary-200/80 bg-primary-50/85 backdrop-blur',
-    ]"
-  >
-    <div
-      class="relative flex items-center justify-between py-3 layout-container"
-    >
+  <header class="site-header">
+    <div class="relative flex items-center justify-between py-3 layout-container">
       <nav class="flex h-10 items-center justify-center text-primary-900">
         <NuxtLink
           :to="localePath('/')"
@@ -22,7 +16,7 @@
           v-for="link in pageLinks"
           :key="link.to"
           :to="link.to"
-          class="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full px-3 leading-none hover:bg-secondary-100/80"
+          class="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full px-3 leading-none transition-colors hover:bg-secondary-100/80"
           active-class="font-semibold text-primary-700"
         >
           {{ link.title }}
@@ -54,7 +48,7 @@
             </span>
           </button>
           <button
-            class=" pl-2"
+            class="pl-2"
             type="button"
             :title="isDark ? t('common.themeLight') : t('common.themeDark')"
             @click="changeTheme(isDark ? 'light' : 'dark')"
@@ -65,6 +59,7 @@
             />
           </button>
         </div>
+
         <VBtn
           v-if="!user && !isCompact"
           @click="openDialog()"
@@ -72,14 +67,15 @@
           class="px-2"
         >
           <img
-            :src="'/favicon.ico'"
+            src="/favicon.ico"
             class="h-8 w-8 rounded-full object-cover"
             alt="avatar"
           />
           <template v-if="width >= 640">
-            <span class="ml-2 hidden sm:inline">{{ t('common.notLoggedIn') }}</span>
+            <span class="ml-2 hidden sm:inline">{{ t("common.notLoggedIn") }}</span>
           </template>
         </VBtn>
+
         <VMenu v-if="user && !isCompact">
           <template #activator="{ props }">
             <VBtn v-bind="props" variant="text" class="px-2">
@@ -118,6 +114,7 @@
             <VListItem :title="t('common.logout')" @click="confirmLogout()" />
           </VList>
         </VMenu>
+
         <VMenu
           v-if="isCompact"
           v-model="drawer"
@@ -137,7 +134,6 @@
             />
             <template v-else>
               <VListItem variant="text" class="px-2">
-                <!-- 頭貼 -->
                 <template #prepend>
                   <VListItemMedia>
                     <img
@@ -148,7 +144,6 @@
                   </VListItemMedia>
                 </template>
 
-                <!-- 文字 -->
                 <VListItemTitle>
                   {{ user.name }}
                 </VListItemTitle>
@@ -206,31 +201,23 @@ type LocaleCode = Parameters<typeof setLocale>[0];
 type ThemeName = "light" | "dark";
 const { user, loginOpen, drawer, logout, openDialog } = useLogin();
 const themePreference = useCookie<string>("theme", { sameSite: "lax" });
+
 const pageLinks = computed(() => [
   {
     to: localePath("/news"),
     title: t("nav.news"),
-    icon: "mdi-calendar-star",
   },
   {
     to: localePath("/clips"),
     title: t("nav.clips"),
-    icon: "mdi-movie-open-outline",
   },
   {
     to: localePath("/wishes"),
     title: t("nav.wishes"),
-    icon: "mdi-heart-multiple-outline",
   },
-  //  {
-  //    to: localePath("/search"),
-  //    title: t("nav.search"),
-  //    icon: "mdi-magnify",
-  //  },
   {
     to: localePath("/about"),
     title: t("nav.about"),
-    icon: "mdi-information-outline",
   },
 ]);
 
@@ -273,13 +260,14 @@ async function confirmLogout() {
 <style scoped lang="scss">
 @reference "../assets/styles/tailwind.css";
 
+.site-header {
+  @apply sticky top-0 z-40 border-b border-primary-200/80 bg-primary-50/85 backdrop-blur;
+}
+
 .layout-container {
   @apply mx-auto w-full max-w-7xl px-4 lg:px-8 sm:px-6;
 }
 
-.theme-fab {
-  @apply fixed bottom-4 right-4 z-70;
-}
 .locale-pill {
   position: relative;
   display: inline-flex;

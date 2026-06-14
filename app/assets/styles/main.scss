@@ -3,3 +3,158 @@
     font-family: var(--font-mono);
   }
 }
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.ui-page {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding-inline: 1rem;
+  color: rgb(var(--v-theme-primary));
+}
+
+.ui-page--home {
+  background: linear-gradient(
+    160deg,
+    rgb(244 248 255 / 0.86) 0%,
+    rgb(232 240 255 / 0.82) 52%,
+    rgb(255 242 223 / 0.86) 100%
+  );
+}
+
+.ui-page--flow {
+  background: linear-gradient(
+    180deg,
+    rgb(245 232 225 / 0.86) 0%,
+    rgb(143 179 189 / 0.86) 100%
+  );
+}
+
+.ui-page--clips {
+  background: linear-gradient(
+    180deg,
+    rgb(245 232 225 / 0.86) 0%,
+    rgb(152 134 189 / 0.86) 100%
+  );
+}
+
+.ui-page--wishes {
+  background: linear-gradient(
+    180deg,
+    rgb(245 232 225 / 0.86) 0%,
+    rgb(226 172 168 / 0.86) 100%
+  );
+}
+
+.ui-page--team {
+  background: linear-gradient(
+    rgb(255 255 255 / 0.58),
+    rgb(255 255 255 / 0.58)
+  );
+}
+
+.ui-board {
+  width: max(80%, min(100%, 1080px));
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  overflow-y: auto;
+  background: rgb(255 255 255 / 0.58);
+  color: rgb(var(--v-theme-primary));
+  box-shadow: 0 24px 48px -24px rgb(var(--v-theme-on-surface) / 0.34);
+}
+
+.reveal-up {
+  animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.hover-lift {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px -24px rgb(var(--v-theme-on-surface) / 0.34);
+}
+
+.interactive-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.interactive-lift:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.ui-heading-title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.ui-heading-subtitle {
+  margin: 0;
+  color: #5a524d;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .ui-page {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ui-page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .ui-page {
+    padding-inline: 14px;
+  }
+
+  .ui-board {
+    width: 100%;
+  }
+}

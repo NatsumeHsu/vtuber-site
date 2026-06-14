@@ -1,66 +1,33 @@
-﻿<template>
-  <section class="layout-container section-shell space-y-10">
-    <header
-      class="hero-card relative overflow-hidden rounded-3xl border border-neutral-300/70 bg-white/90 p-6 sm:p-10"
-    >
-      <div
-        aria-hidden
-        class="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-primary-300/35 blur-3xl pointer-events-none"
-      />
-      <div
-        aria-hidden
-        class="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-secondary-300/35 blur-3xl pointer-events-none"
-      />
-      <div class="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-        <div class="reveal-up space-y-6">
-          <p
-            class="inline-flex rounded-full border border-primary-200/80 bg-primary-50 px-4 py-1 text-xs font-semibold tracking-[0.18em] text-primary-700"
-          >
-            {{ t("home.badge") }}
-          </p>
-          <h1
-            class="text-3xl font-black tracking-tight text-primary-900 sm:text-5xl"
-          >
-            {{ t("home.title") }}
-          </h1>
-          <p class="text-base leading-relaxed text-neutral-800">
-            {{ t("home.description") }}
-          </p>
-          <div>
-            <div class="flex flex-wrap gap-3">
-              <NuxtLink :to="localePath('/wishes/new')" class="btn-accent">
-                {{ t("home.ctaSubmit") }}
-              </NuxtLink>
-              <NuxtLink :to="localePath('/news')" class="btn-secondary">
-                {{ t("home.ctaEvent") }}
-              </NuxtLink>
-            </div>
-          </div>
-          <div>
-            <Countdown :title="t('home.countdownTitle')" />
-          </div>
+<template>
+  <section class="home-page ui-page ui-page--home">
+    <div class="home-board ui-board scrollbar-hidden">
+      <section class="hero-visual reveal-up">
+        <img src="/hero.png" :alt="t('home.heroAlt')" class="hero-image" />
+        <div class="hero-copy">
+          <p>{{ t("home.badge") }}</p>
+          <h1>{{ t("home.title") }}</h1>
         </div>
+        <NuxtLink :to="localePath('/wishes/new')" class="hero-action interactive-lift">
+          {{ t("home.ctaSubmit") }}
+        </NuxtLink>
+      </section>
 
-        <div class="reveal-up reveal-delay-1">
-          <img
-            src="/hero.png"
-            :alt="t('home.heroAlt')"
-            class="w-full rounded-3xl border border-white/70 bg-white/80 object-cover shadow-[0_24px_48px_-20px_rgba(15,23,42,0.45)]"
-          />
+      <section class="home-panel home-panel--overlap reveal-up reveal-delay-1">
+        <h2>{{ t("home.clipsHeading") }}</h2>
+        <div class="feature-grid">
+          <article v-for="item in features" :key="item.title" class="feature-card hover-lift">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+            <NuxtLink :to="item.to" class="mini-button interactive-lift">{{ item.action }}</NuxtLink>
+          </article>
         </div>
-      </div>
-    </header>
+      </section>
 
-    <div id="clips">
-      <h2 class="mb-4 text-2xl font-bold">{{ t("home.clipsHeading") }}</h2>
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <ClipCard
-          v-for="clip in clips"
-          :key="clip.title"
-          :title="clip.title"
-          :thumb="clip.thumb"
-        />
-      </div>
+      <section class="home-panel about-panel reveal-up reveal-delay-2">
+        <h2>{{ t("about.title") }}</h2>
+        <p>{{ t("home.description") }}</p>
+        <p>{{ t("about.description") }}</p>
+      </section>
     </div>
   </section>
 </template>
@@ -70,18 +37,24 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 useI18nPageSeo({ pageKey: "home" });
 
-const clips = computed(() => [
+const features = computed(() => [
   {
-    title: t("home.clip1"),
-    thumb: "/hero.png",
+    title: t("news.title"),
+    description: t("news.description"),
+    action: t("home.ctaEvent"),
+    to: localePath("/news"),
   },
   {
-    title: t("home.clip2"),
-    thumb: "/hero.png",
+    title: t("clips.title"),
+    description: t("clips.description"),
+    action: t("clips.cardTitle"),
+    to: localePath("/clips"),
   },
   {
-    title: t("home.clip3"),
-    thumb: "/hero.png",
+    title: t("wishes.title"),
+    description: t("wishes.description"),
+    action: t("home.ctaBrowse"),
+    to: localePath("/wishes"),
   },
 ]);
 </script>
@@ -89,73 +62,152 @@ const clips = computed(() => [
 <style scoped lang="scss">
 @reference "../assets/styles/tailwind.css";
 
-.layout-container {
-  @apply mx-auto w-full max-w-7xl px-4 lg:px-8 sm:px-6;
+.home-board {
+  padding-bottom: 56px;
+  background: transparent;
+  box-shadow: none;
 }
 
-.section-shell {
-  @apply py-10 sm:py-12;
-}
-
-.hero-card {
+.hero-visual {
+  position: relative;
+  min-height: clamp(340px, 54vw, 560px);
+  overflow: hidden;
+  background: #ffffff;
   box-shadow: 0 24px 48px -24px rgb(var(--v-theme-on-surface) / 0.34);
 }
 
-.btn-accent {
-  @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-white;
-  background-image: linear-gradient(
-    135deg,
-    rgb(var(--v-theme-primary)),
-    color-mix(in srgb, rgb(var(--v-theme-primary)) 76%, black)
-  );
-  box-shadow: 0 12px 24px -14px rgb(var(--v-theme-primary) / 0.66);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
+.hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
 }
 
-.btn-accent:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 16px 28px -16px rgb(var(--v-theme-primary) / 0.74);
+.hero-copy {
+  position: absolute;
+  inset: 32px 32px auto;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgb(var(--v-theme-on-surface) / 0.46);
 }
 
-.btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-white;
-  background-image: linear-gradient(
-    135deg,
-    rgb(var(--v-theme-secondary)),
-    color-mix(in srgb, rgb(var(--v-theme-secondary)) 76%, black)
-  );
-  box-shadow: 0 12px 24px -14px rgb(var(--v-theme-secondary) / 0.64);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
+.hero-copy p {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
-.btn-secondary:hover {
-  filter: brightness(1.04);
-  box-shadow: 0 16px 28px -16px rgb(var(--v-theme-secondary) / 0.72);
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0;
 }
 
-.reveal-up {
-  animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+.hero-action {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  min-width: 74px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  background: rgb(var(--v-theme-secondary));
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.reveal-delay-1 {
-  animation-delay: 0.08s;
+.home-panel {
+  background: rgb(255 255 255 / 0.58);
+  padding: clamp(28px, 5vw, 48px);
 }
 
-@keyframes revealUp {
-  0% {
-    opacity: 0;
-    transform: translateY(18px);
+.home-panel--overlap {
+  margin-top: -2px;
+}
+
+.home-panel h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.feature-card {
+  min-height: 218px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 22px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 36px rgb(var(--v-theme-on-surface) / 0.12);
+  text-align: center;
+}
+
+.feature-card h3 {
+  margin: 0;
+  color: #7698a3;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.feature-card p {
+  margin: 16px 0 20px;
+  color: #5a524d;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.mini-button {
+  display: inline-flex;
+  min-width: 112px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #b23a34;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.about-panel {
+  margin-top: -2px;
+}
+
+.about-panel p {
+  max-width: 760px;
+  margin: 0 auto 16px;
+  color: #5a524d;
+  font-size: 16px;
+  line-height: 2;
+}
+
+@media (max-width: 760px) {
+  .hero-copy {
+    inset: 24px 18px auto;
   }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-panel {
+    padding: 28px 18px;
   }
 }
 </style>
