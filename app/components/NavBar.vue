@@ -1,30 +1,28 @@
 <template>
   <header class="site-header">
-    <div class="relative flex items-center justify-between py-3 layout-container">
-      <nav class="flex h-10 items-center justify-center text-primary-900">
+    <div class="header-layout layout-container">
         <NuxtLink
           :to="localePath('/')"
-          class="group flex h-10 items-center gap-2 pr-5"
+          class="brand-link"
         >
-          <img src="/favicon.ico" alt="logo" class="h-8 w-8 animate-float" />
-          <span class="hidden font-bold leading-none tracking-wide md:block">
-            {{ t("common.projectName") }}
+          <span class="brand-icon-frame">
+            <img src="/icon.png" :alt="t('common.projectName')" class="brand-icon" width="1263" height="793" />
           </span>
         </NuxtLink>
-
+      <nav class="header-nav" :aria-label="t('nav.home')">
         <NuxtLink
           v-for="link in pageLinks"
-          :key="link.to"
+          :key="link.title"
           :to="link.to"
-          class="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full px-3 leading-none transition-colors hover:bg-secondary-100/80"
+          class="header-nav-link"
           active-class="font-semibold text-primary-700"
         >
           {{ link.title }}
         </NuxtLink>
       </nav>
 
-      <div class="flex items-center gap-2">
-        <div class="hidden md:block">
+      <div class="header-actions">
+        <div class="header-preferences">
           <button
             type="button"
             class="locale-pill"
@@ -48,9 +46,10 @@
             </span>
           </button>
           <button
-            class="pl-2"
+            class="theme-button"
             type="button"
             :title="isDark ? t('common.themeLight') : t('common.themeDark')"
+            :aria-label="isDark ? t('common.themeLight') : t('common.themeDark')"
             @click="changeTheme(isDark ? 'light' : 'dark')"
           >
             <VIcon
@@ -71,7 +70,7 @@
             class="h-8 w-8 rounded-full object-cover"
             alt="avatar"
           />
-          <template v-if="width >= 640">
+          <template v-if="width >= 1280">
             <span class="ml-2 hidden sm:inline">{{ t("common.notLoggedIn") }}</span>
           </template>
         </VBtn>
@@ -84,8 +83,8 @@
                 class="h-8 w-8 rounded-full object-cover"
                 alt="avatar"
               />
-              <template v-if="width >= 640">
-                <span class="ml-2 hidden sm:inline">{{ user.name }}</span>
+              <template v-if="width >= 1280">
+                <span class="account-name ml-2">{{ user.name }}</span>
               </template>
             </VBtn>
           </template>
@@ -122,11 +121,19 @@
           :close-on-content-click="false"
         >
           <template #activator="{ props }">
-            <VBtn v-bind="props" variant="tonal">
+            <VBtn v-bind="props" variant="tonal" icon="mdi-menu" :aria-label="t('nav.home')">
               <VIcon icon="mdi-menu" />
             </VBtn>
           </template>
           <VList density="compact" min-width="260">
+            <VListItem
+              v-for="link in pageLinks"
+              :key="link.title"
+              :to="link.to"
+              :title="link.title"
+              @click="drawer = false"
+            />
+            <VDivider class="my-2" />
             <VListItem
               v-if="!user"
               :title="t('common.login')"
@@ -174,6 +181,11 @@
               <VListItem :title="t('common.logout')" @click="confirmLogout()" />
             </template>
             <VDivider class="my-2" />
+            <VListItem
+              :title="isDark ? t('common.themeLight') : t('common.themeDark')"
+              :prepend-icon="isDark ? 'mdi-white-balance-sunny' : 'mdi-weather-night'"
+              @click="changeTheme(isDark ? 'light' : 'dark')"
+            />
             <VListSubheader>{{ t("common.language") }}</VListSubheader>
             <VListItem
               v-for="item in localeItems"
@@ -204,7 +216,7 @@ const themePreference = useCookie<string>("theme", { sameSite: "lax" });
 
 const pageLinks = computed(() => [
   {
-    to: localePath("/news"),
+    to: { path: localePath("/"), hash: "#news" },
     title: t("nav.news"),
   },
   {
@@ -222,7 +234,7 @@ const pageLinks = computed(() => [
 ]);
 
 const isDark = computed(() => theme.global.name.value === "dark");
-const isCompact = computed(() => width.value < 600);
+const isCompact = computed(() => width.value < 1200);
 
 const normalizeTheme = (name: string | null | undefined): ThemeName =>
   name === "dark" ? "dark" : "light";
@@ -261,11 +273,141 @@ async function confirmLogout() {
 @reference "../assets/styles/tailwind.css";
 
 .site-header {
-  @apply sticky top-0 z-40 border-b border-primary-200/80 bg-primary-50/85 backdrop-blur;
+  position: relative;
+  z-index: 40;
 }
 
 .layout-container {
-  @apply mx-auto w-full max-w-7xl px-4 lg:px-8 sm:px-6;
+  box-sizing: border-box;
+  width: min(100%, calc(var(--page-width, 1080px) + 2 * var(--page-inset, 24px)));
+  margin-inline: auto;
+  padding-inline: var(--page-inset, 24px);
+}
+
+.header-layout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: 40px;
+  align-items: center;
+  gap: 16px;
+  height: 70px;
+  padding-block: 15px;
+}
+
+.brand-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 12px;
+  min-width: 0;
+  color: rgb(var(--v-theme-on-surface));
+  text-decoration: none;
+}
+
+.brand-icon-frame {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  aspect-ratio: 1263 / 793;
+  flex-shrink: 0;
+}
+
+
+.brand-name {
+  max-width: 180px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  min-width: 0;
+  padding-left: 20px;
+}
+
+.header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: rgb(var(--v-theme-primary));
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.header-nav-link:hover {
+  background: rgb(var(--v-theme-primary) / 0.08);
+}
+
+.header-actions,
+.header-preferences {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-actions {
+  justify-self: end;
+}
+
+.account-name {
+  display: inline-block;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.brand-link:focus-visible,
+.header-nav-link:focus-visible,
+.theme-button:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 3px;
+}
+
+@media (max-width: 1199px) {
+  .header-layout {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .header-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 759px) {
+  .header-preferences {
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 399px) {
+  .brand-name {
+    display: none;
+  }
 }
 
 .locale-pill {

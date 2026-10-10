@@ -1,8 +1,12 @@
 <template>
-  <code>{{ info }}</code>
+  <section class="ui-document-page">
+    <PageHeader :title="t('authDiscordPage.title')" :description="t('authDiscordPage.description')" icon="mdi-discord" />
+    <code>{{ info }}</code>
+  </section>
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
 definePageMeta({ ssr: false });
 
 useI18nPageSeo({ pageKey: "authDiscordPage", noindex: true });

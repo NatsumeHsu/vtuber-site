@@ -1,170 +1,181 @@
 {
   "common": {
-    "projectName": "VTuber Project",
+    "projectName": "TeRaź 1st Anniversary",
     "language": "Language",
     "confirm": "Confirm",
-    "login": "Log in",
-    "logout": "Log out",
-    "notLoggedIn": "Not logged in",
+    "login": "Log In",
+    "logout": "Log Out",
+    "notLoggedIn": "Not Logged In",
     "account": "Account Settings",
-    "submitWish": "Submit Wish",
-    "manageWish": "Manage Posts",
+    "submitWish": "Leave a Message",
+    "manageWish": "Manage Submissions",
     "manageUsers": "User Management",
-    "themeLight": "Light mode",
-    "themeDark": "Dark mode"
+    "themeLight": "Light Mode",
+    "themeDark": "Dark Mode"
   },
   "nav": {
     "home": "Home",
-    "news": "News",
-    "clips": "Clips",
-    "wishes": "Blessing Wall",
+    "news": "Project Updates",
+    "clips": "Highlights",
+    "wishes": "Message Wall",
     "search": "Search",
-    "about": "About"
+    "about": "About the Project"
   },
   "authGooglePage": {
-    "title": "Processing Google Sign-in",
-    "description": "Completing Google authorization and establishing your sign-in session."
+    "title": "Signing in with Google",
+    "description": "Completing Google authorization and signing you in."
   },
   "authDiscordPage": {
-    "title": "Processing Discord Sign-in",
-    "description": "Completing Discord authorization and establishing your sign-in session."
+    "title": "Signing in with Discord",
+    "description": "Completing Discord authorization and signing you in."
   },
   "app": {
-    "footer": "© {year} VTuber Project"
+    "footer": "© {year} TeRaź 1st Anniversary Fan Project · Unofficial"
   },
   "home": {
-    "badge": "OFFICIAL FAN SUPPORT",
-    "title": "Support the Next VTuber Event Together",
-    "description": "Collect fan wishes, curate clips, and track event updates in one place.",
-    "ctaSubmit": "Submit Wish",
-    "ctaBrowse": "Blessing Wall",
-    "ctaNews": "Event Schedule",
-    "countdownTitle": "Countdown to the Next Event",
-    "heroAlt": "VTuber event key visual",
-    "clipsHeading": "Featured Clips",
-    "clip1": "Stage Highlight",
-    "clip2": "Behind-the-scenes Recap",
-    "clip3": "Fan Creation Showcase"
+    "badge": "UNOFFICIAL 1ST ANNIVERSARY PROJECT",
+    "title": "Celebrating Our First Year with TeRaź",
+    "description": "From the moment we first met to everything we've shared since, the story of TeRaź and everyone who supports them continues. Let's gather the memories, messages, and moments that made this first year special.",
+    "ctaSubmit": "Leave a Message",
+    "ctaBrowse": "View Message Wall",
+    "ctaEvent": "Project Details",
+    "countdownTitle": "Countdown to the 1st Anniversary",
+    "heroAlt": "TeRaź 1st Anniversary fan project key visual",
+    "clipsHeading": "Memories from the First Year",
+    "clip1": "TeRaź Highlights",
+    "clip2": "Memorable Moments",
+    "clip3": "Fan-Favorite Memories"
   },
   "news": {
-    "title": "Prepare for the Next Event",
-    "description": "Coordinate submissions, clip production, and schedule milestones for a smooth launch.",
-    "ctaSubmit": "Submit Wish",
-    "ctaBrowse": "Blessing Wall",
-    "timelineTitle": "Event Timeline",
-    "timelineDescription": "Track each milestone based on the current plan and keep delivery on time.",
-    "heroAlt": "Event key visual",
-    "step1": "Project announcement",
-    "step2": "Submissions open",
-    "step3": "Clip production",
-    "step4": "Event warm-up",
-    "step5": "Clips published",
-    "step6": "Event day / Live stream"
+    "displayTitle": "Anniversary Ad Details",
+    "locationMapTitle": "Ad Location",
+    "lightboxPhotoTitle": "Anniversary Display",
+    "title": "Celebrating TeRaź's 1st Anniversary Together",
+    "description": "This is an unofficial anniversary project created by fans to bring together messages, memories, and support as we celebrate TeRaź's first year.",
+    "ctaSubmit": "Leave Your Message",
+    "ctaBrowse": "Visit the Message Wall",
+    "timelineTitle": "Project Timeline",
+    "timelineDescription": "Follow the project from its announcement and message collection through production and the final anniversary release.",
+    "heroAlt": "TeRaź 1st Anniversary fan project key visual",
+    "step1": "Project Announcement",
+    "step2": "Message Submissions Open",
+    "step3": "Content Curation & Production",
+    "step4": "Anniversary Countdown",
+    "step5": "Anniversary Content Release",
+    "step6": "1st Anniversary"
   },
   "about": {
-    "title": "About",
-    "description": "This VTuber event support site combines event updates, clip content, and fan submissions with a responsive experience.",
-    "contactTitle": "Contact",
+    "group": {
+      "title": {
+        "lead": "Project Lead",
+        "deputy": "Deputy Leads",
+        "planning": "Team Members",
+        "thanks": "Special Thanks"
+      }
+    },
+    "title": "About the TeRaź 1st Anniversary Project",
+    "description": "The TeRaź 1st Anniversary Project is an unofficial fan-led celebration created by fans of TeRaź. Through anniversary messages, highlight collections, and other fan projects, we hope to preserve the memories we've made together throughout their first year. This project is not affiliated with or officially endorsed by Meridian Project, and does not represent the views of Meridian Project or the members of TeRaź.",
+    "contactTitle": "Project Contact",
     "email": "Email",
-    "twitter": "Twitter"
+    "twitter": "X / Twitter"
   },
   "clips": {
-    "title": "Clips",
-    "description": "Browse featured event highlights and fan-made clip recaps.",
-    "cardTitle": "Weekly Highlight Clip"
+    "title": "Highlights",
+    "description": "Look back on some of TeRaź's most memorable moments from the past year, along with favorite moments chosen by fans.",
+    "cardTitle": "Featured TeRaź Moments"
   },
   "wishes": {
-    "title": "Blessing Wall",
-    "description": "Read fan blessing messages and media submissions in one place.",
-    "create": "Submit a Blessing"
+    "title": "Anniversary Message Wall",
+    "description": "Every message from the community becomes part of the memories we've made together this year.",
+    "create": "Leave a Message"
   },
   "wishesNewPage": {
-    "title": "Submit a Blessing",
-    "description": "Sign in to submit your blessing message and creative assets."
+    "title": "Leave an Anniversary Message",
+    "description": "Sign in to leave a message for TeRaź and celebrate their first anniversary together with the community."
   },
   "roles": {
-    "owner": "Owner",
-    "admin": "Admin",
-    "member": "Member",
+    "owner": "Project Lead",
+    "admin": "Project Staff",
+    "member": "Staff Member",
     "user": "User"
   },
   "pagination": {
     "prev": "Previous",
     "next": "Next",
     "page": "Page {page}",
-    "pageWithTotal": "Page {page} / {total}"
+    "pageWithTotal": "Page {page} of {total}"
   },
   "adminContribute": {
-    "title": "Post Review",
-    "description": "Review fan submissions, adjust moderation status, and keep wall content quality consistent.",
-    "usersButton": "User Management",
-    "total": "{total} items",
+    "title": "Submission Review",
+    "description": "Review fan submissions and maintain the content displayed on the anniversary message wall.",
+    "usersButton": "Manage Users",
+    "total": "{total} submissions",
     "tabs": {
       "pending": "Pending",
       "approve": "Approved",
       "reject": "Rejected"
     },
     "filters": {
-      "keywordPlaceholder": "Keyword filter (client-side)",
+      "keywordPlaceholder": "Search submissions",
       "sortBy": "Sort By",
-      "sortDir": "Direction"
+      "sortDir": "Order"
     },
     "sort": {
-      "createdAt": "Created Time",
-      "category": "Category",
-      "id": "ID"
+      "createdAt": "Submission Date",
+      "category": "Submission Type",
+      "id": "Submission ID"
     },
     "sortDir": {
-      "desc": "Descending",
-      "asc": "Ascending"
+      "desc": "Newest First",
+      "asc": "Oldest First"
     },
     "actions": {
       "approve": "Approve",
       "reject": "Reject",
       "delete": "Delete"
     },
-    "confirmDelete": "Delete this post? This action cannot be undone.",
+    "confirmDelete": "Are you sure you want to delete this submission? This action cannot be undone.",
     "toast": {
-      "approved": "Approved",
-      "rejected": "Rejected",
+      "approved": "Submission approved",
+      "rejected": "Submission rejected",
       "actionFailed": "Action failed",
-      "removed": "Deleted",
-      "removeFailed": "Delete failed"
+      "removed": "Submission deleted",
+      "removeFailed": "Failed to delete submission"
     }
   },
   "adminUsers": {
     "title": "User Management",
-    "description": "Manage user roles, review login activity, and maintain account access controls.",
+    "description": "Manage user accounts, project roles, and account information.",
     "total": "{total} users",
-    "backToReview": "Back to Review",
-    "keywordPlaceholder": "Search Email / Display Name",
+    "backToReview": "Back to Submissions",
+    "keywordPlaceholder": "Search by email or display name",
     "refresh": "Refresh",
-    "noData": "No data",
+    "noData": "No data available",
     "filters": {
-      "role": "Role Filter",
+      "role": "Role",
       "sortBy": "Sort By",
-      "sortDir": "Direction",
+      "sortDir": "Order",
       "allRoles": "All Roles"
     },
     "sort": {
-      "createdAt": "Created Time",
+      "createdAt": "Date Joined",
       "lastLoginAt": "Last Login",
       "email": "Email",
       "role": "Role",
       "name": "Name"
     },
     "sortDir": {
-      "desc": "Descending",
-      "asc": "Ascending"
+      "desc": "Newest First",
+      "asc": "Oldest First"
     },
     "table": {
       "id": "ID",
       "user": "User",
       "currentRole": "Current Role",
-      "linked": "Linked Providers",
+      "linked": "Linked Accounts",
       "lastLogin": "Last Login",
-      "action": "Action",
-      "noName": "Unnamed",
+      "action": "Actions",
+      "noName": "No display name",
       "notLinked": "Not linked",
       "neverLogin": "Never logged in"
     },
@@ -175,71 +186,71 @@
   },
   "userAccount": {
     "title": "Account Settings",
-    "description": "Manage your profile details, linked providers, and post history.",
+    "description": "Manage your profile, linked accounts, and anniversary submissions.",
     "badge": "MY PROFILE",
     "tabs": {
-      "home": "Profile Home",
-      "settings": "Data Settings"
+      "home": "Profile",
+      "settings": "Settings"
     },
     "summary": {
       "title": "Account Overview",
-      "totalPosts": "{total} posts",
-      "linked": "{total} linked providers",
-      "passwordSet": "Password configured",
-      "passwordUnset": "Password not set",
-      "posts": "Posts",
-      "social": "Social",
-      "setupPassword": "Set password first"
+      "totalPosts": "{total} submissions",
+      "linked": "{total} linked platforms",
+      "passwordSet": "Password set",
+      "passwordUnset": "No password set",
+      "posts": "Submissions",
+      "social": "Linked Accounts",
+      "setupPassword": "Set Password"
     },
     "settings": {
-      "title": "Data Settings",
-      "subtitle": "Manage avatar, display name, social links, and account security like a social profile."
+      "title": "Account Settings",
+      "subtitle": "Manage your profile picture, display name, linked accounts, and account security."
     },
     "home": {
-      "title": "Profile Home"
+      "title": "Profile"
     },
     "profile": {
-      "title": "Basic Profile",
+      "title": "Profile Information",
       "displayName": "Display Name",
-      "avatar": "Avatar (Optional)",
-      "clickToChange": "Click avatar to change photo",
-      "changeAvatar": "Choose New Photo",
-      "cancelAvatarChange": "Cancel this change",
-      "newAvatarSelected": "New avatar selected, save to apply",
+      "avatar": "Profile Picture",
+      "clickToChange": "Click your profile picture to change it",
+      "changeAvatar": "Choose New Picture",
+      "cancelAvatarChange": "Cancel Change",
+      "newAvatarSelected": "New profile picture selected. Save your changes to apply it.",
       "save": "Save Profile",
-      "avatarHint": "Images only, max size 5MB"
+      "avatarHint": "Image files up to 5 MB are supported"
     },
     "social": {
-      "title": "Social Links",
+      "title": "Linked Accounts",
       "linked": "Linked",
-      "unlinked": "Not linked",
+      "unlinked": "Not Linked",
       "link": "Link",
       "unlink": "Unlink"
     },
     "password": {
-      "title": "Password Settings",
-      "descriptionCreate": "You have not set a password yet. Create one to complete account security setup.",
+      "title": "Password",
+      "descriptionCreate": "You haven't set a password yet. You can create one as an additional way to sign in.",
       "descriptionUpdate": "Update your sign-in password here.",
       "newPassword": "New Password (at least 8 characters)",
       "confirmPassword": "Confirm Password",
-      "save": "Save Password",
+      "save": "Set Password",
       "update": "Update Password",
-      "hint": "Use a mixed alphanumeric password and avoid reusing old passwords",
+      "hint": "Use a combination of letters and numbers, and avoid reusing passwords from other services.",
       "validation": {
         "required": "Required",
-        "min": "At least 8 characters",
+        "min": "Password must be at least 8 characters",
         "match": "Passwords do not match"
       }
     },
     "posts": {
-      "title": "My Posts",
-      "total": "{total} items",
+      "title": "My Anniversary Messages",
+      "total": "{total} submissions",
       "refresh": "Refresh",
-      "statusFilter": "Status Filter",
+      "statusFilter": "Status",
       "anonymous": "Anonymous",
-      "view": "View Post",
-      "withdraw": "Withdraw",
-      "empty": "No post records yet"
+      "view": "View Submission",
+      "withdraw": "Withdraw Submission",
+      "empty": "You haven't submitted anything yet"
     },
     "status": {
       "all": "All",
@@ -248,81 +259,81 @@
       "reject": "Rejected"
     },
     "postStatus": {
-      "pending": "Pending Review",
-      "approve": "Approved",
-      "reject": "Rejected"
+      "pending": "Under Review",
+      "approve": "Published",
+      "reject": "Not Approved"
     },
     "toast": {
-      "unlinkSuccess": "Unlinked",
-      "nameRequired": "Display name is required",
+      "unlinkSuccess": "Account unlinked",
+      "nameRequired": "Please enter a display name",
       "profileUpdated": "Profile updated",
-      "avatarTooLarge": "Avatar image must be under 5MB",
-      "passwordSaved": "Password has been set",
+      "avatarTooLarge": "Profile picture must be smaller than 5 MB",
+      "passwordSaved": "Password set successfully",
       "updateFailed": "Update failed",
-      "passwordFailed": "Password update failed",
-      "confirmWithdraw": "Withdraw this post? This action cannot be undone.",
-      "withdrawSuccess": "Post withdrawn",
-      "withdrawFailed": "Withdraw failed"
+      "passwordFailed": "Failed to set password",
+      "confirmWithdraw": "Are you sure you want to withdraw this submission? This action cannot be undone.",
+      "withdrawSuccess": "Submission withdrawn",
+      "withdrawFailed": "Failed to withdraw submission"
     }
   },
   "userLoginPage": {
-    "chip": "MEMBER ACCESS",
-    "title": "Log in to Your Supporter Account",
-    "description": "Use your email/password or social login to quickly return to posts, comments, and event tools.",
-    "benefit1": "Manage blessing messages and post history in one place",
-    "benefit2": "Switch quickly with Google / Discord social sign-in",
-    "benefit3": "Protect personal data and sessions with secure flows"
+    "chip": "FAN PROJECT",
+    "title": "Join the TeRaź 1st Anniversary Project",
+    "description": "Sign in to leave anniversary messages, manage your submissions, and celebrate the memories we've made together.",
+    "benefit1": "Leave your own anniversary message for TeRaź",
+    "benefit2": "View and manage your submissions",
+    "benefit3": "Quick sign-in with Google or Discord"
   },
   "userPasswordPage": {
-    "title": "Set Password",
-    "description": "Update your account password to protect sign-in and submission data.",
+    "title": "Set Your Password",
+    "description": "Set or update the password you use to sign in.",
     "newPassword": "New Password (at least 8 characters)",
     "confirmPassword": "Confirm Password",
-    "save": "Save",
+    "save": "Save Password",
     "validation": {
       "required": "Required",
-      "min": "At least 8 characters",
+      "min": "Password must be at least 8 characters",
       "match": "Passwords do not match"
     },
     "toast": {
-      "saved": "Password has been set",
-      "failed": "Failed"
+      "saved": "Password set successfully",
+      "failed": "Failed to set password"
     }
   },
   "userProfilePage": {
     "title": "User Profile",
     "unknown": "Unknown User",
-    "subtitle": "Public posts",
-    "viewWishes": "View Blessing Wall",
-    "postsTitle": "Public Posts",
-    "postsTotal": "{total} posts",
+    "subtitle": "Anniversary Messages",
+    "viewWishes": "View Message Wall",
+    "postsTitle": "Public Messages",
+    "postsTotal": "{total} messages",
     "refresh": "Refresh",
-    "viewPost": "View Post",
-    "empty": "No public posts yet",
-    "notFoundTitle": "User not found",
-    "notFoundDescription": "This user may not exist or has no public content.",
+    "viewPost": "View Message",
+    "empty": "No public anniversary messages yet",
+    "notFoundTitle": "User Not Found",
+    "notFoundDescription": "This user may not exist or may not have any public content.",
     "backHome": "Back to Home"
   },
   "searchPage": {
     "title": "Search",
-    "description": "Search users and public posts.",
-    "keywordLabel": "Keyword",
-    "keywordPlaceholder": "Type a user name or post content",
+    "description": "Search for users and public anniversary messages.",
+    "keywordLabel": "Search",
+    "keywordPlaceholder": "Search names or message content",
     "search": "Search",
-    "hint": "Enter a keyword, then switch between Users and Posts.",
+    "hint": "Enter a keyword, then switch between user and message results.",
     "tabs": {
       "users": "Users",
-      "posts": "Posts"
+      "posts": "Messages"
     },
     "userCount": "{total} users",
-    "postCount": "{total} posts",
+    "postCount": "{total} messages",
     "emptyUsers": "No matching users found",
-    "emptyPosts": "No matching posts found",
+    "emptyPosts": "No matching messages found",
     "anonymous": "Anonymous",
     "unknownUser": "Unknown User",
-    "viewPost": "View Post",
+    "viewPost": "View Message",
     "toast": {
-      "searchFailed": "Search failed, please try again"
+      "searchFailed": "Search failed. Please try again later."
     },
     "advanced": {
       "toggle": "Advanced Search",
@@ -330,23 +341,23 @@
       "authorPlaceholder": "\\@user (multiple allowed)",
       "tagLabel": "Tag",
       "tagPlaceholder": "#tag (multiple allowed)",
-      "hint": "Use \\@user, #tag, and keywords together in the main search field for composite filtering.",
+      "hint": "You can combine \\@users, #tags, and keywords in the main search field.",
       "clear": "Clear Filters",
-      "activeFilters": "Active filters"
+      "activeFilters": "Active Filters"
     }
   },
   "loginForm": {
-    "titleLogin": "Log in",
-    "titleRegister": "Sign up",
-    "subtitle": "Use your email/password or continue with a provider",
+    "titleLogin": "Log In",
+    "titleRegister": "Create an Account",
+    "subtitle": "Sign in to take part in the anniversary project",
     "fields": {
       "name": "Display Name",
       "email": "Email",
       "password": "Password"
     },
-    "submitLogin": "Log in",
-    "submitRegister": "Create account",
-    "toggleToRegister": "No account? Create one",
+    "submitLogin": "Log In",
+    "submitRegister": "Create Account",
+    "toggleToRegister": "New here? Create an account",
     "toggleToLogin": "Already have an account? Log in",
     "oauth": {
       "google": "Continue with Google",
@@ -355,26 +366,26 @@
     "close": "Close",
     "validation": {
       "required": "Required",
-      "email": "Invalid email format"
+      "email": "Please enter a valid email address"
     },
     "toast": {
       "loginSuccess": "Logged in successfully",
-      "registerSuccess": "Registered successfully",
-      "actionFailed": "Action failed"
+      "registerSuccess": "Account created successfully",
+      "actionFailed": "Something went wrong"
     }
   },
   "blessingCard": {
-    "empty": "(No content)",
+    "empty": "(No written message)",
     "category": {
       "image": "Image",
       "audio": "Audio",
       "video": "Video",
-      "embed": "YT Embed",
+      "embed": "YouTube",
       "text": "Text"
     }
   },
   "countdown": {
-    "expired": "The event has started",
-    "daysUnit": "d"
+    "expired": "Happy 1st Anniversary!",
+    "daysUnit": "Days"
   }
 }

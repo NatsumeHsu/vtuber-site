@@ -1,16 +1,8 @@
 ﻿<template>
-  <section class="layout-container space-y-6 py-8">
-    <header class="flex flex-wrap items-center justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold">{{ t("adminUsers.title") }}</h1>
-        <p class="text-sm text-neutral-800">{{ t("adminUsers.total", { total }) }}</p>
-      </div>
-      <div class="flex gap-2">
-        <VBtn variant="tonal" rounded="lg" to="/admin/contribute">
-          {{ t("adminUsers.backToReview") }}
-        </VBtn>
-      </div>
-    </header>
+  <section class="ui-document-page admin-page layout-container space-y-6 py-8">
+    <PageHeader :title="t('adminUsers.title')" :description="t('adminUsers.total', { total })" icon="mdi-account-group-outline">
+      <template #actions><VBtn variant="tonal" rounded="lg" to="/admin/contribute">{{ t("adminUsers.backToReview") }}</VBtn></template>
+    </PageHeader>
 
     <div class="flex flex-wrap gap-3">
       <VTextField
@@ -253,6 +245,8 @@ async function updateRole(it: Item, role: RoleEnum) {
 @reference "../../assets/styles/tailwind.css";
 
 .layout-container {
-  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  padding-inline: var(--board-inset);
+  border: 1px solid rgb(var(--v-theme-on-surface) / 0.08);
+  border-radius: var(--panel-radius);
 }
 </style>

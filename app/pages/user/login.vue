@@ -1,16 +1,12 @@
 ﻿<template>
-  <section class="layout-container login-shell">
+  <section class="ui-document-page layout-container login-shell">
     <ClientOnly>
       <div class="login-grid">
         <div aria-hidden class="login-orb login-orb--primary" />
         <div aria-hidden class="login-orb login-orb--secondary" />
 
         <aside class="login-intro">
-          <p class="login-chip">{{ t("userLoginPage.chip") }}</p>
-          <h1 class="login-title">{{ t("userLoginPage.title") }}</h1>
-          <p class="login-desc">
-            {{ t("userLoginPage.description") }}
-          </p>
+          <PageHeader :badge="t('userLoginPage.chip')" :title="t('userLoginPage.title')" :description="t('userLoginPage.description')" icon="mdi-login" />
 
           <ul class="login-benefits">
             <li class="login-benefit-item">
@@ -69,11 +65,16 @@ watch(
 @reference "../../assets/styles/tailwind.css";
 
 .layout-container {
-  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  margin-inline: auto;
+  width: min(calc(100% - 2 * var(--page-inset)), var(--page-width));
 }
 
 .login-shell {
-  @apply py-8 sm:py-12;
+  padding-block: 24px 48px;
+
+  @media (max-width: 760px) {
+    padding-block: 16px 32px;
+  }
 }
 
 .login-grid {

@@ -41,7 +41,7 @@ Copy-Item .env.example .env
 Please verify at least these variables:
 
 - `PORT`
-- `DB_PATH`
+- `DB_NAME`
 - `SESSION_SECRET`
 - `OAUTH_GOOGLE_*`
 - `OAUTH_DISCORD_*`

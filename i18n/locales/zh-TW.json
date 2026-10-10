@@ -1,13 +1,13 @@
 {
   "common": {
-    "projectName": "VTuber Project",
+    "projectName": "序境一周年",
     "language": "語言",
     "confirm": "確定",
     "login": "登入",
     "logout": "登出",
     "notLoggedIn": "未登入",
     "account": "帳號設定",
-    "submitWish": "投稿祝福",
+    "submitWish": "送上祝福",
     "manageWish": "管理投稿",
     "manageUsers": "用戶管理",
     "themeLight": "淺色模式",
@@ -15,78 +15,89 @@
   },
   "nav": {
     "home": "首頁",
-    "news": "最新活動",
-    "clips": "精華",
+    "news": "企劃資訊",
+    "clips": "精華回顧",
     "wishes": "祝福牆",
     "search": "搜尋",
-    "about": "關於我們"
+    "about": "關於企劃"
   },
   "authGooglePage": {
     "title": "Google 登入處理中",
-    "description": "正在處理 Google 登入授權並建立登入狀態。"
+    "description": "正在完成 Google 登入授權，請稍候。"
   },
   "authDiscordPage": {
     "title": "Discord 登入處理中",
-    "description": "正在處理 Discord 登入授權並建立登入狀態。"
+    "description": "正在完成 Discord 登入授權，請稍候。"
   },
   "app": {
-    "footer": "© {year} VTuber Project"
+    "footer": "© {year} 序境一周年粉絲企劃｜非官方企劃"
   },
   "home": {
-    "badge": "OFFICIAL FAN SUPPORT",
-    "title": "一起為 VTuber 活動應援",
-    "description": "投稿祝福、整理精華、追蹤活動資訊，讓粉絲創作和現場應援更集中。",
-    "ctaSubmit": "投稿祝福",
-    "ctaBrowse": "祝福牆",
-    "ctaEvent": "活動行程",
-    "countdownTitle": "下一場活動倒數",
-    "heroAlt": "VTuber 活動主視覺",
-    "clipsHeading": "精選精華",
-    "clip1": "應援舞台精華",
-    "clip2": "幕後花絮整理",
-    "clip3": "粉絲創作回顧"
+    "badge": "UNOFFICIAL 1ST ANNIVERSARY PROJECT",
+    "title": "與序境一起，走過第一個周年",
+    "description": "從初次相遇到今天，屬於序境與大家的故事仍在繼續。讓我們把這一年的回憶、祝福與喜歡，一起留在這裡。",
+    "ctaSubmit": "寫下祝福",
+    "ctaBrowse": "看看大家的祝福",
+    "ctaEvent": "查看企劃資訊",
+    "countdownTitle": "一周年倒數",
+    "heroAlt": "序境一周年粉絲企劃主視覺",
+    "clipsHeading": "這一年的精彩回憶",
+    "clip1": "序境精華回顧",
+    "clip2": "難忘時刻",
+    "clip3": "粉絲精選回憶"
   },
   "news": {
-    "title": "一起準備下一場活動",
-    "description": "整合投稿、剪輯與流程安排，讓活動當天更順利。",
-    "ctaSubmit": "投稿祝福",
-    "ctaBrowse": "祝福牆",
-    "timelineTitle": "活動流程",
-    "timelineDescription": "依照目前規劃追蹤每個里程碑，確保任務在期限內完成。",
-    "heroAlt": "活動主視覺",
+    "displayTitle": "應援燈箱資訊",
+    "locationMapTitle": "燈箱位置",
+    "lightboxPhotoTitle": "應援燈箱",
+    "title": "一起迎接序境一周年",
+    "description": "這是一場由粉絲共同籌備的非官方一周年紀念企劃，將大家的祝福與心意匯聚在一起，陪伴序境迎接這個特別的日子。",
+    "ctaSubmit": "送上你的祝福",
+    "ctaBrowse": "前往祝福牆",
+    "timelineTitle": "企劃進度",
+    "timelineDescription": "記錄一周年粉絲企劃從籌備、募集到正式公開的每一個階段。",
+    "heroAlt": "序境一周年粉絲企劃主視覺",
     "step1": "企劃公開",
-    "step2": "投稿開放",
-    "step3": "剪輯製作",
-    "step4": "活動預熱",
-    "step5": "精華上架",
-    "step6": "活動當日 / 直播"
+    "step2": "祝福募集",
+    "step3": "內容整理與製作",
+    "step4": "一周年預熱",
+    "step5": "紀念內容公開",
+    "step6": "一周年紀念日"
   },
   "about": {
-    "title": "關於我們",
-    "description": "這是 VTuber 活動支援網站，整合活動資訊、精華內容與粉絲投稿，並提供良好的桌機與行動裝置體驗。",
-    "contactTitle": "聯絡方式",
+    "group": {
+      "title": {
+        "lead": "總召",
+        "deputy": "副召",
+        "planning": "團隊成員",
+        "thanks": "特別感謝"
+      }
+    },
+    "title": "關於序境一周年企劃",
+    "description": "「序境一周年」是由喜愛〖序境 TeRaź〗的粉絲自發籌備的非官方一周年紀念企劃。我們希望透過祝福牆、精華回顧與各項應援內容，收藏大家與序境共同走過第一年的回憶。本企劃並非子午計畫官方企劃，亦不代表子午計畫或序境成員立場。",
+    "contactTitle": "企劃聯絡方式",
     "email": "Email",
-    "twitter": "Twitter"
+    "twitter": "X / Twitter"
   },
   "clips": {
-    "title": "精華",
-    "description": "瀏覽活動精選精華與粉絲創作回顧。",
-    "cardTitle": "本週精華剪輯"
+    "title": "精華回顧",
+    "description": "一起回顧序境這一年留下的精彩片段，以及粉絲們珍藏的難忘時刻。",
+    "cardTitle": "序境精選回憶"
   },
   "wishes": {
-    "title": "祝福牆",
-    "description": "查看粉絲祝福留言與多媒體投稿內容。",
-    "create": "我要投稿"
+    "title": "一周年祝福牆",
+    "description": "來自大家的一周年祝福，都會成為這段旅程珍貴的一部分。",
+    "create": "寫下我的祝福"
   },
   "wishesNewPage": {
-    "title": "投稿祝福",
-    "description": "登入後可提交祝福訊息與投稿素材。"
+    "title": "送上你的祝福",
+    "description": "登入後即可留下想對序境說的話，與大家一起紀念這特別的一周年。"
   },
   "roles": {
-    "owner": "Owner",
-    "admin": "Admin",
-    "member": "Member",
-    "user": "User"
+    "owner": "企劃負責人",
+    "admin": "企劃組",
+    "member": "工作人員",
+    "user": "一般使用者"
   },
   "pagination": {
     "prev": "上一頁",
@@ -95,55 +106,55 @@
     "pageWithTotal": "第 {page} 頁 / 共 {total} 頁"
   },
   "adminContribute": {
-    "title": "投稿審核",
-    "description": "審核粉絲投稿、調整狀態並維護祝福牆內容品質。",
+    "title": "祝福投稿審核",
+    "description": "審核粉絲提交的祝福與內容，並維護祝福牆的公開內容。",
     "usersButton": "使用者管理",
-    "total": "共 {total} 筆",
+    "total": "共 {total} 筆投稿",
     "tabs": {
-      "pending": "待審",
-      "approve": "通過",
-      "reject": "退回"
+      "pending": "待審核",
+      "approve": "已通過",
+      "reject": "已退回"
     },
     "filters": {
-      "keywordPlaceholder": "關鍵字過濾（前端）",
+      "keywordPlaceholder": "搜尋投稿內容",
       "sortBy": "排序欄位",
-      "sortDir": "排序方向"
+      "sortDir": "排序方式"
     },
     "sort": {
-      "createdAt": "建立時間",
-      "category": "類別",
-      "id": "編號"
+      "createdAt": "投稿時間",
+      "category": "投稿類型",
+      "id": "投稿編號"
     },
     "sortDir": {
-      "desc": "遞減",
-      "asc": "遞增"
+      "desc": "新到舊",
+      "asc": "舊到新"
     },
     "actions": {
       "approve": "通過",
       "reject": "退回",
       "delete": "刪除"
     },
-    "confirmDelete": "確定要刪除這筆投稿嗎？此操作無法復原。",
+    "confirmDelete": "確定要刪除這筆投稿嗎？刪除後將無法復原。",
     "toast": {
-      "approved": "已通過",
-      "rejected": "已退回",
+      "approved": "投稿已通過",
+      "rejected": "投稿已退回",
       "actionFailed": "操作失敗",
-      "removed": "已刪除",
+      "removed": "投稿已刪除",
       "removeFailed": "刪除失敗"
     }
   },
   "adminUsers": {
     "title": "使用者管理",
-    "description": "管理使用者角色、檢視登入狀態與帳號資料。",
+    "description": "管理網站使用者、企劃組權限與帳號資訊。",
     "total": "共 {total} 位使用者",
-    "backToReview": "返回審核",
+    "backToReview": "返回投稿審核",
     "keywordPlaceholder": "搜尋 Email / 顯示名稱",
     "refresh": "重新整理",
-    "noData": "無資料",
+    "noData": "目前沒有資料",
     "filters": {
       "role": "角色篩選",
       "sortBy": "排序欄位",
-      "sortDir": "排序方向",
+      "sortDir": "排序方式",
       "allRoles": "全部角色"
     },
     "sort": {
@@ -154,19 +165,19 @@
       "name": "名稱"
     },
     "sortDir": {
-      "desc": "遞減",
-      "asc": "遞增"
+      "desc": "新到舊",
+      "asc": "舊到新"
     },
     "table": {
       "id": "ID",
       "user": "使用者",
       "currentRole": "目前角色",
-      "linked": "綁定來源",
+      "linked": "綁定平台",
       "lastLogin": "最後登入",
       "action": "操作",
       "noName": "未設定名稱",
       "notLinked": "未綁定",
-      "neverLogin": "未登入"
+      "neverLogin": "尚未登入"
     },
     "toast": {
       "roleUpdated": "角色已更新",
@@ -175,25 +186,25 @@
   },
   "userAccount": {
     "title": "帳號設定",
-    "description": "管理你的個人資料、社群綁定與投稿紀錄。",
+    "description": "管理你的個人資料、社群綁定與祝福投稿。",
     "badge": "MY PROFILE",
     "tabs": {
       "home": "個人主頁",
-      "settings": "資料設定"
+      "settings": "帳號設定"
     },
     "summary": {
       "title": "帳號概況",
-      "totalPosts": "貼文 {total} 則",
-      "linked": "綁定 {total} 個平台",
+      "totalPosts": "投稿 {total} 則",
+      "linked": "已綁定 {total} 個平台",
       "passwordSet": "已設定密碼",
       "passwordUnset": "尚未設定密碼",
-      "posts": "貼文",
-      "social": "社群",
-      "setupPassword": "先設定密碼"
+      "posts": "投稿",
+      "social": "社群帳號",
+      "setupPassword": "設定密碼"
     },
     "settings": {
-      "title": "資料設定",
-      "subtitle": "像社群軟體一樣管理頭貼、顯示名稱、社群綁定與帳號安全。"
+      "title": "帳號設定",
+      "subtitle": "管理頭貼、顯示名稱、社群綁定與帳號安全。"
     },
     "home": {
       "title": "個人主頁"
@@ -201,56 +212,56 @@
     "profile": {
       "title": "基本資料",
       "displayName": "顯示名稱",
-      "avatar": "頭貼（可選）",
+      "avatar": "頭貼",
       "clickToChange": "點擊頭貼更換照片",
       "changeAvatar": "選擇新照片",
       "cancelAvatarChange": "取消本次更換",
       "newAvatarSelected": "已選擇新頭貼，儲存後生效",
       "save": "儲存基本資料",
-      "avatarHint": "支援圖片，大小上限 5MB"
+      "avatarHint": "支援圖片格式，檔案大小上限 5MB"
     },
     "social": {
-      "title": "社群綁定",
+      "title": "社群帳號綁定",
       "linked": "已綁定",
       "unlinked": "未綁定",
       "link": "綁定",
-      "unlink": "解除"
+      "unlink": "解除綁定"
     },
     "password": {
       "title": "密碼設定",
-      "descriptionCreate": "尚未設定密碼，請先建立密碼以完成帳號安全設定。",
-      "descriptionUpdate": "可在這裡更新你的登入密碼。",
+      "descriptionCreate": "目前尚未設定密碼，你可以建立密碼作為另一種登入方式。",
+      "descriptionUpdate": "你可以在這裡更新登入密碼。",
       "newPassword": "新密碼（至少 8 碼）",
-      "confirmPassword": "再次輸入",
-      "save": "儲存密碼",
+      "confirmPassword": "再次輸入密碼",
+      "save": "設定密碼",
       "update": "更新密碼",
-      "hint": "建議使用英數混合並避免重複使用舊密碼",
+      "hint": "建議使用英文字母與數字混合，並避免與其他網站使用相同密碼。",
       "validation": {
-        "required": "必填",
-        "min": "至少 8 碼",
-        "match": "兩次輸入不一致"
+        "required": "此欄位為必填",
+        "min": "密碼至少需要 8 碼",
+        "match": "兩次輸入的密碼不一致"
       }
     },
     "posts": {
-      "title": "我的貼文紀錄",
-      "total": "共 {total} 筆",
+      "title": "我的祝福投稿",
+      "total": "共 {total} 筆投稿",
       "refresh": "重新整理",
-      "statusFilter": "狀態篩選",
-      "anonymous": "匿名",
+      "statusFilter": "審核狀態",
+      "anonymous": "匿名投稿",
       "view": "查看投稿",
       "withdraw": "撤回投稿",
-      "empty": "目前沒有貼文紀錄"
+      "empty": "你目前還沒有投稿"
     },
     "status": {
       "all": "全部",
-      "pending": "待審",
-      "approve": "通過",
-      "reject": "退回"
-    },
-    "postStatus": {
       "pending": "待審核",
       "approve": "已通過",
       "reject": "已退回"
+    },
+    "postStatus": {
+      "pending": "等待審核",
+      "approve": "已公開",
+      "reject": "未通過"
     },
     "toast": {
       "unlinkSuccess": "已解除綁定",
@@ -260,67 +271,67 @@
       "passwordSaved": "密碼已設定",
       "updateFailed": "更新失敗",
       "passwordFailed": "密碼設定失敗",
-      "confirmWithdraw": "確定要撤回這筆投稿嗎？撤回後將無法復原。",
-      "withdrawSuccess": "已撤回投稿",
+      "confirmWithdraw": "確定要撤回這筆祝福投稿嗎？撤回後將無法復原。",
+      "withdrawSuccess": "投稿已撤回",
       "withdrawFailed": "撤回失敗"
     }
   },
   "userLoginPage": {
-    "chip": "MEMBER ACCESS",
-    "title": "登入你的應援帳號",
-    "description": "使用帳號密碼或第三方登入，快速回到投稿、留言與活動管理。",
-    "benefit1": "集中管理你的祝福留言與投稿紀錄",
-    "benefit2": "同步社群登入，快速切換 Google / Discord",
-    "benefit3": "使用安全流程保護個人資料與登入狀態"
+    "chip": "FAN PROJECT",
+    "title": "登入序境一周年企劃",
+    "description": "登入後即可留下祝福、管理投稿，與大家一起收藏這一年的回憶。",
+    "benefit1": "留下屬於你的一周年祝福",
+    "benefit2": "管理與查看自己的投稿紀錄",
+    "benefit3": "支援 Google 與 Discord 快速登入"
   },
   "userPasswordPage": {
-    "title": "設定密碼",
-    "description": "更新帳號密碼以保護你的登入與投稿資料。",
+    "title": "設定登入密碼",
+    "description": "設定或更新你的網站登入密碼。",
     "newPassword": "新密碼（至少 8 碼）",
-    "confirmPassword": "再次輸入",
-    "save": "儲存",
+    "confirmPassword": "再次輸入密碼",
+    "save": "儲存密碼",
     "validation": {
-      "required": "必填",
-      "min": "至少 8 碼",
-      "match": "兩次輸入不一致"
+      "required": "此欄位為必填",
+      "min": "密碼至少需要 8 碼",
+      "match": "兩次輸入的密碼不一致"
     },
     "toast": {
       "saved": "密碼已設定",
-      "failed": "失敗"
+      "failed": "密碼設定失敗"
     }
   },
   "userProfilePage": {
     "title": "使用者主頁",
     "unknown": "未知使用者",
-    "subtitle": "公開貼文展示",
-    "viewWishes": "查看祝福牆",
-    "postsTitle": "公開貼文",
+    "subtitle": "一周年祝福投稿",
+    "viewWishes": "前往祝福牆",
+    "postsTitle": "公開祝福",
     "postsTotal": "共 {total} 則",
     "refresh": "重新整理",
-    "viewPost": "查看貼文",
-    "empty": "目前沒有公開貼文",
+    "viewPost": "查看祝福",
+    "empty": "目前沒有公開的祝福投稿",
     "notFoundTitle": "找不到這位使用者",
-    "notFoundDescription": "該使用者可能不存在或尚未公開內容。",
+    "notFoundDescription": "這位使用者可能不存在，或目前沒有公開內容。",
     "backHome": "返回首頁"
   },
   "searchPage": {
     "title": "搜尋",
-    "description": "搜尋使用者與公開貼文內容。",
+    "description": "搜尋參與企劃的使用者與公開祝福內容。",
     "keywordLabel": "關鍵字",
-    "keywordPlaceholder": "輸入名稱或貼文內容",
+    "keywordPlaceholder": "搜尋名稱或祝福內容",
     "search": "搜尋",
-    "hint": "輸入關鍵字後可切換「使用者」或「貼文」結果。",
+    "hint": "輸入關鍵字後，可切換查看「使用者」或「祝福」結果。",
     "tabs": {
       "users": "使用者",
-      "posts": "貼文"
+      "posts": "祝福"
     },
     "userCount": "共 {total} 位使用者",
-    "postCount": "共 {total} 則貼文",
-    "emptyUsers": "找不到符合的使用者",
-    "emptyPosts": "找不到符合的貼文",
+    "postCount": "共 {total} 則祝福",
+    "emptyUsers": "找不到符合條件的使用者",
+    "emptyPosts": "找不到符合條件的祝福",
     "anonymous": "匿名",
     "unknownUser": "未知使用者",
-    "viewPost": "查看貼文",
+    "viewPost": "查看祝福",
     "toast": {
       "searchFailed": "搜尋失敗，請稍後再試"
     },
@@ -330,15 +341,15 @@
       "authorPlaceholder": "\\@使用者（可多個）",
       "tagLabel": "標籤",
       "tagPlaceholder": "#標籤（可多個）",
-      "hint": "可在主搜尋欄輸入 \\@使用者 #標籤 與關鍵字，系統會自動複合查詢。",
+      "hint": "可在搜尋欄輸入 \\@使用者、#標籤與關鍵字進行複合搜尋。",
       "clear": "清除條件",
       "activeFilters": "已套用篩選條件"
     }
   },
   "loginForm": {
     "titleLogin": "登入",
-    "titleRegister": "註冊",
-    "subtitle": "使用帳號密碼或第三方登入",
+    "titleRegister": "建立帳號",
+    "subtitle": "登入後即可參與一周年祝福企劃",
     "fields": {
       "name": "顯示名稱",
       "email": "Email",
@@ -346,35 +357,35 @@
     },
     "submitLogin": "登入",
     "submitRegister": "建立帳號",
-    "toggleToRegister": "沒有帳號？建立一個",
-    "toggleToLogin": "已有帳號？前往登入",
+    "toggleToRegister": "第一次來？建立帳號",
+    "toggleToLogin": "已經有帳號？前往登入",
     "oauth": {
       "google": "使用 Google 繼續",
       "discord": "使用 Discord 繼續"
     },
     "close": "關閉",
     "validation": {
-      "required": "必填",
-      "email": "Email 格式錯誤"
+      "required": "此欄位為必填",
+      "email": "Email 格式不正確"
     },
     "toast": {
       "loginSuccess": "登入成功",
-      "registerSuccess": "註冊成功",
+      "registerSuccess": "帳號建立成功",
       "actionFailed": "操作失敗"
     }
   },
   "blessingCard": {
-    "empty": "（無內文）",
+    "empty": "（沒有文字內容）",
     "category": {
       "image": "圖片",
       "audio": "音檔",
       "video": "影片",
-      "embed": "YT 嵌入",
+      "embed": "YouTube",
       "text": "文字"
     }
   },
   "countdown": {
-    "expired": "活動已開始",
+    "expired": "一周年到了！",
     "daysUnit": "天"
   }
 }

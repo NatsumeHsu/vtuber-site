@@ -56,7 +56,7 @@ const year = new Date().getFullYear();
 .app-page-scroll-host {
   height: 100%;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .app-shell--guest {

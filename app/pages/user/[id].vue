@@ -1,12 +1,7 @@
 <template>
-  <section class="mx-auto max-w-4xl space-y-6 py-8 sm:py-10">
+  <section class="ui-document-page mx-auto max-w-4xl space-y-6 py-8 sm:py-10">
     <div v-if="error" class="card space-y-4 p-8 text-center">
-      <h1 class="text-xl font-bold">
-        {{ t("userProfilePage.notFoundTitle") }}
-      </h1>
-      <p class="text-sm text-neutral-800">
-        {{ t("userProfilePage.notFoundDescription") }}
-      </p>
+      <PageHeader :title="t('userProfilePage.notFoundTitle')" :description="t('userProfilePage.notFoundDescription')" icon="mdi-account-alert-outline" />
       <div>
         <VBtn rounded="lg" color="primary" @click="navigateTo(localePath('/'))">
           {{ t("userProfilePage.backHome") }}
@@ -15,32 +10,14 @@
     </div>
 
     <template v-else>
-      <header
-        class="card flex flex-wrap items-center justify-between gap-4 p-6"
-      >
-        <div class="flex items-center gap-4">
-          <img
-            :src="profile?.avatar || '/favicon.ico'"
-            class="h-16 w-16 rounded-2xl border border-primary-200/70 object-cover sm:h-20 sm:w-20"
-          />
-          <div>
-            <h1 class="text-2xl font-black tracking-tight text-primary-900">
-              {{ profile?.name || t("userProfilePage.unknown") }}
-            </h1>
-            <p class="text-sm text-neutral-800">
-              {{ t("userProfilePage.subtitle") }}
-            </p>
-          </div>
-        </div>
-
-        <VBtn
-          variant="tonal"
-          rounded="lg"
-          @click="navigateTo(localePath('/wishes'))"
-        >
-          {{ t("userProfilePage.viewWishes") }}
-        </VBtn>
-      </header>
+      <PageHeader :title="profile?.name || t('userProfilePage.unknown')" :description="t('userProfilePage.subtitle')">
+        <template #avatar>
+          <img :src="profile?.avatar || '/favicon.ico'" :alt="profile?.name || t('userProfilePage.unknown')" class="h-16 w-16 rounded-2xl object-cover" />
+        </template>
+        <template #actions>
+          <VBtn variant="tonal" rounded="lg" @click="navigateTo(localePath('/wishes'))">{{ t("userProfilePage.viewWishes") }}</VBtn>
+        </template>
+      </PageHeader>
 
       <div class="card space-y-4 p-6">
         <div class="flex flex-wrap items-center justify-between gap-3">
@@ -71,7 +48,7 @@
 
             <p
               v-if="post.message != ''"
-              class="wrap-break-word whitespace-pre-wrap text-sm leading-relaxed text-neutral-900"
+              class="font-wish wrap-break-word whitespace-pre-wrap text-sm leading-relaxed text-neutral-900"
             >
               {{ post.message }}
             </p>

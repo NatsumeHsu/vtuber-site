@@ -1,38 +1,30 @@
 <template>
   <section class="home-page ui-page ui-page--home">
     <div class="home-board ui-board scrollbar-hidden">
-      <section class="hero-visual reveal-up">
-        <img src="/hero.png" :alt="t('home.heroAlt')" class="hero-image" />
-        <div class="hero-copy">
-          <p>{{ t("home.badge") }}</p>
-          <h1>{{ t("home.title") }}</h1>
+      <section class="hero-visual reveal-up" aria-labelledby="hero-title">
+        <div class="hero-artwork">
+          <img src="/hero.png" :alt="t('home.heroAlt')" class="hero-image" fetchpriority="high" />
         </div>
-        <NuxtLink :to="localePath('/wishes/new')" class="hero-action interactive-lift">
-          {{ t("home.ctaSubmit") }}
-        </NuxtLink>
-      </section>
-
-      <section class="home-panel home-panel--overlap reveal-up reveal-delay-1">
-        <h2>{{ t("home.clipsHeading") }}</h2>
-        <div class="feature-grid">
-          <article v-for="item in features" :key="item.title" class="feature-card hover-lift">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <NuxtLink :to="item.to" class="mini-button interactive-lift">{{ item.action }}</NuxtLink>
-          </article>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="hero-badge">{{ t("home.badge") }}</p>
+            <h1 id="hero-title">{{ t("home.title") }}</h1>
+            <p class="hero-description">{{ t("home.description") }}</p>
+          </div>
+          <NuxtLink :to="localePath('/wishes/new')" class="hero-action interactive-lift">
+            <span>{{ t("home.ctaSubmit") }}</span>
+            <VIcon icon="mdi-arrow-right" size="20" aria-hidden="true" />
+          </NuxtLink>
         </div>
       </section>
 
-      <section class="home-panel about-panel reveal-up reveal-delay-2">
-        <h2>{{ t("about.title") }}</h2>
-        <p>{{ t("home.description") }}</p>
-        <p>{{ t("about.description") }}</p>
-      </section>
+      <NewsDisplay class="home-panel reveal-up" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+
 const { t } = useI18n();
 const localePath = useLocalePath();
 useI18nPageSeo({ pageKey: "home" });
@@ -42,7 +34,7 @@ const features = computed(() => [
     title: t("news.title"),
     description: t("news.description"),
     action: t("home.ctaEvent"),
-    to: localePath("/news"),
+    to: { path: localePath("/"), hash: "#news" },
   },
   {
     title: t("clips.title"),
@@ -63,67 +55,115 @@ const features = computed(() => [
 @reference "../assets/styles/tailwind.css";
 
 .home-board {
-  padding-bottom: 56px;
+  padding-bottom: 0;
+  border: 0;
   background: transparent;
   box-shadow: none;
 }
 
 .hero-visual {
-  position: relative;
-  min-height: clamp(340px, 54vw, 560px);
   overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 24px 48px -24px rgb(var(--v-theme-on-surface) / 0.34);
+  border: 1px solid rgb(153 107 79 / 0.16);
+  border-radius: var(--panel-radius);
+  background: #fff8ee;
+  box-shadow: 0 20px 48px -28px rgb(72 43 30 / 0.35);
+}
+
+.hero-artwork {
+  position: relative;
+  background: #e8d8bf;
+}
+
+.hero-artwork::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 48px;
+  background: linear-gradient(transparent, rgb(77 43 25 / 0.12));
+  pointer-events: none;
 }
 
 .hero-image {
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
   display: block;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: clamp(24px, 4vw, 40px);
+  background: linear-gradient(120deg, #fffaf2, #f5e9da);
 }
 
 .hero-copy {
-  position: absolute;
-  inset: 32px 32px auto;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 0 2px 14px rgb(var(--v-theme-on-surface) / 0.46);
+  flex: 1;
+  min-width: 0;
+  color: #49352d;
 }
 
-.hero-copy p {
-  margin: 0 0 6px;
-  font-size: 15px;
+.hero-badge {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 6px 12px;
+  border: 1px solid rgb(153 107 79 / 0.2);
+  border-radius: 999px;
+  color: #8b5d43;
+  background: rgb(255 255 255 / 0.65);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  overflow-wrap: anywhere;
 }
 
 .hero-copy h1 {
+  font-family: var(--font-story);
   margin: 0;
-  font-size: clamp(26px, 4vw, 44px);
-  font-weight: 900;
-  letter-spacing: 0;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.hero-description {
+  font-family: var(--font-story);
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: #796357;
+  font-size: 15px;
+  line-height: 1.9;
 }
 
 .hero-action {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
   display: inline-flex;
-  min-width: 74px;
-  height: 38px;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background: rgb(var(--v-theme-secondary));
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: #9b4436;
+  box-shadow: 0 8px 20px rgb(155 68 54 / 0.18);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-action:focus-visible {
+  outline: 3px solid #9b4436;
+  outline-offset: 4px;
 }
 
 .home-panel {
-  background: rgb(255 255 255 / 0.58);
-  padding: clamp(28px, 5vw, 48px);
+  margin-top: var(--section-gap);
+  border: 1px solid rgb(var(--v-theme-on-surface) / 0.08);
+  border-radius: var(--panel-radius);
+  background: rgb(var(--v-theme-surface) / 0.92);
+  padding: var(--board-inset);
 }
 
 .home-panel--overlap {
@@ -133,8 +173,8 @@ const features = computed(() => [
 .home-panel h2 {
   margin: 0 0 28px;
   text-align: center;
-  font-size: clamp(21px, 3vw, 30px);
-  font-weight: 900;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -161,7 +201,7 @@ const features = computed(() => [
   margin: 0;
   color: #7698a3;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
@@ -206,8 +246,6 @@ const features = computed(() => [
     grid-template-columns: 1fr;
   }
 
-  .home-panel {
-    padding: 28px 18px;
-  }
+
 }
 </style>

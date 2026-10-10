@@ -1,25 +1,10 @@
 <template>
-  <section class="mx-auto max-w-6xl space-y-6 py-8 sm:py-10">
-    <header class="card hero-shell">
-      <div aria-hidden class="hero-cover" />
-      <div class="relative z-10 flex flex-wrap items-end justify-between gap-4 p-6 sm:p-8">
-        <div class="flex items-center gap-4">
-          <img
-            :src="user?.avatar || '/favicon.ico'"
-            class="h-20 w-20 rounded-2xl border border-white/70 object-cover shadow-md"
-          />
-          <div class="space-y-1">
-            <p class="text-xs font-semibold tracking-[0.22em] text-primary-800/80">
-              {{ t("userAccount.badge") }}
-            </p>
-            <h1 class="text-2xl font-black tracking-tight text-primary-950 sm:text-3xl">
-              {{ user?.name || user?.email }}
-            </h1>
-            <p class="text-sm text-neutral-900">{{ user?.email }}</p>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2">
+  <section class="ui-document-page mx-auto max-w-6xl space-y-6 py-8 sm:py-10">
+    <PageHeader :title="user?.name || user?.email || t('common.account')" :description="user?.email" :badge="t('userAccount.badge')">
+      <template #avatar>
+        <img :src="user?.avatar || '/favicon.ico'" :alt="user?.name || t('common.account')" class="h-16 w-16 rounded-2xl object-cover" />
+      </template>
+      <template #actions>
           <VChip size="small" color="primary" variant="tonal">
             {{ t("userAccount.summary.totalPosts", { total: postTotal }) }}
           </VChip>
@@ -37,9 +22,9 @@
                 : t("userAccount.summary.passwordUnset")
             }}
           </VChip>
-        </div>
-      </div>
-    </header>
+
+      </template>
+    </PageHeader>
 
     <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
       <aside class="card space-y-4 p-5">
@@ -321,7 +306,7 @@
               </header>
 
               <div class="space-y-1">
-                <p class="wrap-break-word whitespace-pre-wrap text-sm leading-relaxed text-neutral-900">
+                <p class="font-wish wrap-break-word whitespace-pre-wrap text-sm leading-relaxed text-neutral-900">
                   {{ displayMessage(post.id, post.message) }}
                 </p>
               </div>

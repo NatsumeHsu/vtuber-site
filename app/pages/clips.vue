@@ -1,34 +1,20 @@
 <template>
   <section class="clips-page ui-page ui-page--clips">
-    <div class="clips-board ui-board reveal-up scrollbar-hidden">
-      <header class="section-heading">
-        <p class="ui-heading-title">{{ t("clips.title") }}</p>
-        <h1 class="ui-heading-subtitle">{{ t("clips.description") }}</h1>
-      </header>
+    <div class="clips-board ui-board ui-content-board reveal-up scrollbar-hidden">
+      <PageHeader :title="t('clips.title')" :description="t('clips.description')" icon="mdi-play" />
 
-      <div class="chip-row" aria-label="clip filters">
-        <span v-for="chip in chips" :key="chip">{{ chip }}</span>
-      </div>
-
-      <div class="video-grid">
-        <ClipCard
-          v-for="clip in clips"
-          :key="clip.title"
-          :title="clip.title"
-          :thumb="clip.thumb"
-        />
-      </div>
-
-      <section class="comic-section">
-        <h2 class="ui-heading-title">{{ t("home.clipsHeading") }}</h2>
-        <div class="tweet-grid">
-          <article v-for="item in comics" :key="item" class="tweet-card hover-lift">
-            <div class="tweet-avatar" />
-            <div>
-              <strong>{{ t("common.projectName") }}</strong>
-              <p>{{ item }}</p>
-            </div>
-          </article>
+      <section v-for="clip in clips" :key="clip.name" class="creator-section">
+        <header class="creator-heading">
+          <h2>{{ clip.name }}</h2>
+          <span class="creator-line" aria-hidden="true" />
+          <VIcon icon="mdi-youtube" size="22" class="creator-icon" aria-hidden="true" />
+        </header>
+        <div class="video-grid">
+          <ClipCard
+            v-for="(url, index) in clip.urls"
+            :key="`${url}-${index}`"
+            :embed-url="url"
+          />
         </div>
       </section>
     </div>
@@ -39,113 +25,135 @@
 const { t } = useI18n();
 useI18nPageSeo({ pageKey: "clips" });
 
-const chips = ["#KeyArt", "#Shorts", "#Cosplay", "#Illustration"];
-const clips = computed(() => [
-  {
-    title: t("home.clip1"),
-    thumb: "/hero.png",
+type ClipGroup = {
+  name: string;
+  urls: string[];
+};
+
+const clips: ClipGroup[] = [
+    {
+    name: "序境",
+    urls: [
+      "https://www.youtube.com/embed/7FC8CCf3qL4?controls=0",
+      "https://www.youtube.com/embed/RQvHl4yVSaU?controls=0",
+      "https://www.youtube.com/embed/y4gGaSWrAVU?controls=0",
+      "https://www.youtube.com/embed/H7FsA0Jj58k?controls=0",
+      "https://www.youtube.com/embed/pZm6mq48yuM?controls=0",
+      "https://www.youtube.com/embed/mfbWtyZ1ygQ?controls=0",
+    ],
   },
   {
-    title: t("home.clip2"),
-    thumb: "/hero.png",
+    name: "実Hitomi",
+    urls: [
+      "https://www.youtube.com/embed/i5v-jUIBA0Q?controls=0",
+      "https://www.youtube.com/embed/S9uDP-8d93A?controls=0",
+      "https://www.youtube.com/embed/AJaKfbG-f10?controls=0",
+    ],
   },
   {
-    title: t("home.clip3"),
-    thumb: "/hero.png",
+    name: "煦Hiyori",
+    urls: [
+      "https://www.youtube.com/embed/5Qo-twPTXBc?controls=0",
+      "https://www.youtube.com/embed/wCv306mB38c?controls=0",
+      "https://www.youtube.com/embed/8QE0GjR9xSI?controls=0",
+    ],
   },
-]);
-const comics = computed(() => [
-  t("home.clip1"),
-  t("home.clip2"),
-  t("home.clip3"),
-]);
+  {
+    name: "幸Sachi",
+    urls: [
+      "https://www.youtube.com/embed/RHEaWC1gKqo?controls=0",
+      "https://www.youtube.com/embed/xBEiJ9_0SEo?controls=0",
+      "https://www.youtube.com/embed/lJhoGkq-jgk?controls=0",
+    ],
+  },
+  {
+    name: "雪koyuki",
+    urls: [
+      "https://www.youtube.com/embed/bCptlDoAze8?controls=0",
+      "https://www.youtube.com/embed/ah3mi9W76dc?controls=0",
+      "https://www.youtube.com/embed/h-P1ND8doHQ?controls=0",
+    ],
+  },
+];
 </script>
 
 <style scoped lang="scss">
-@reference "../assets/styles/tailwind.css";
 
-.clips-board {
-  padding: 42px clamp(20px, 5vw, 56px) 52px;
+
+
+
+
+.creator-section {
+  margin-top: var(--section-gap);
+  padding: clamp(16px, 2.5vw, 26px);
+  border: 1px solid rgb(var(--v-theme-on-surface) / 0.08);
+  border-radius: 22px;
+  background: rgb(var(--v-theme-surface) / 0.8);
+  box-shadow: 0 8px 28px rgb(var(--v-theme-on-surface) / 0.04);
 }
 
-.section-heading {
-  text-align: center;
-}
-
-.chip-row {
+.creator-heading {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   gap: 12px;
-  margin: 28px 0 30px;
+  margin-bottom: 22px;
 }
 
-.chip-row span {
-  min-width: 82px;
-  border-radius: 999px;
-  padding: 7px 14px;
-  background: #ffffff;
-  color: #9886bd;
-  text-align: center;
+.creator-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgb(152 134 189 / 0.14);
+  color: rgb(var(--v-theme-on-surface) / 0.7);
   font-size: 13px;
   font-weight: 800;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  font-variant-numeric: tabular-nums;
 }
 
-.chip-row span:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 24px -16px rgb(var(--v-theme-on-surface) / 0.34);
+.creator-heading h2 {
+  min-width: 0;
+  margin: 0;
+  color: rgb(var(--v-theme-on-surface));
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  overflow-wrap: anywhere;
 }
 
-.video-grid,
-.tweet-grid {
+.creator-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(152 134 189 / 0.35), transparent);
+}
+
+.creator-icon {
+  color: #9886bd;
+}
+
+.video-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 18px;
 }
 
-.comic-section {
-  margin-top: 42px;
-  text-align: center;
+@media (max-width: 1100px) {
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.tweet-card {
-  min-height: 146px;
-  display: flex;
-  gap: 12px;
-  padding: 16px;
-  border-radius: 8px;
-  background: #ffffff;
-  text-align: left;
-}
+@media (max-width: 640px) {
 
-.tweet-avatar {
-  width: 36px;
-  height: 36px;
-  flex: 0 0 auto;
-  border-radius: 999px;
-  background: #d9d9d9;
-}
 
-.tweet-card strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 13px;
-}
+  .creator-heading {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
 
-.tweet-card p {
-  margin: 0;
-  color: #5a524d;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-@media (max-width: 820px) {
-  .video-grid,
-  .tweet-grid {
+  .video-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 </style>

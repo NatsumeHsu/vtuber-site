@@ -3,8 +3,12 @@
 @import "tailwindcss/utilities" layer(tailwind-utilities);
 
 @theme {
-  --font-heading: "Roboto", sans-serif;
-  --font-body: "Roboto", sans-serif;
+  --font-heading: "Noto Serif TC", "PMingLiU", serif;
+  --font-story: "LXGW WenKai TC", "Noto Sans TC", sans-serif;
+  --font-ui: "Huninn", "Noto Sans TC", sans-serif;
+  --font-wish: "Iansui", "LXGW WenKai TC", "Noto Sans TC", sans-serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-sans: var(--font-body);
   --font-mono: "Roboto Mono", monospace;
 
   --color-background: rgb(var(--v-theme-background));

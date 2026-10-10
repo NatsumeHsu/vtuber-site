@@ -1,12 +1,9 @@
 ﻿<template>
-  <section class="max-w-3xl mx-auto section-shell">
+  <section class="ui-document-page ui-document-page--form max-w-3xl mx-auto section-shell">
     <div v-if="!user"
       class="space-y-4 rounded-2xl border border-neutral-200/80 bg-white/95 p-8 text-center shadow-[0_8px_30px_rgba(15,23,42,0.04)]"
     >
-      <h1 class="text-3xl font-black tracking-tight text-primary-900">
-        我要投稿
-      </h1>
-      <p class="text-base text-neutral-700">要登入之後才可以投稿唷!!</p>
+      <PageHeader title="我要投稿" description="要登入之後才可以投稿唷!!" icon="mdi-pencil-outline" />
       <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
         <VBtn @click="openDialog()" color="primary" rounded="lg">點我登入</VBtn>
         <VBtn to="/wishes" color="secondary" rounded="lg">先看投稿</VBtn>
@@ -16,14 +13,7 @@
     <div v-else-if="submitting"
       class="space-y-4 rounded-2xl border border-neutral-200/80 bg-white/95 p-8 text-center shadow-[0_8px_30px_rgba(15,23,42,0.04)]"
     >
-      <h1 class="flex items-center justify-center gap-2 text-3xl font-black leading-none tracking-tight text-primary-900">
-        <VIcon icon="mdi-check-circle" color="green" size="36" class="shrink-0" />
-        送出成功！
-      </h1>
-      <p class="text-base text-neutral-700">
-        <span>恭喜你已成功提交祝福，管理員將會盡快審核，</br>
-        通過之後將會透過 Email 同步通知。</span>
-      </p>
+      <PageHeader title="送出成功！" description="恭喜你已成功提交祝福，管理員將會盡快審核， 通過之後將會透過 Email 同步通知。" icon="mdi-check-circle-outline" />
        <p class="text-sm text-neutral-500">
         （如果有任何問題，歡迎聯繫我們！）
       </p>
@@ -38,14 +28,7 @@
         class="space-y-5 rounded-2xl border border-neutral-200/80 bg-white/95 p-6 shadow-[0_8px_30px_rgba(15,23,42,0.04)]"
         @submit.prevent="submit"
       >
-        <div class="mb-6 space-y-2">
-          <h1 class="text-3xl font-black tracking-tight text-primary-900">
-            我要投稿
-          </h1>
-          <p class="text-sm text-neutral-700">
-            留下祝福文字，並可附上作品或外部連結。
-          </p>
-        </div>
+        <PageHeader title="我要投稿" description="留下祝福文字，並可附上作品或外部連結。" icon="mdi-pencil-outline" />
         <VTextarea
           v-model="form.message"
           label="祝福訊息"
@@ -105,7 +88,6 @@
             <li>附件不接受 AI 生成內容。</li>
             <li>禁止個資、攻擊、仇恨、未成年不宜內容；違者刪除且取消資格。</li>
             <li>授權主催於本企劃中非商用展示與合輯收錄，並保留作者署名。</li>
-            <li>截稿日期： {{ new Date("2026/10/01GMT+0800").toLocaleString() }}</li>
           </ol>
           <VCheckbox
             label="我同意投稿規範與非商用展示授權"
@@ -189,6 +171,10 @@ async function submit() {
 @reference "../../assets/styles/tailwind.css";
 
 .section-shell {
-  @apply py-10 sm:py-12;
+  padding-block: 24px 48px;
+
+  @media (max-width: 760px) {
+    padding-block: 16px 32px;
+  }
 }
 </style>

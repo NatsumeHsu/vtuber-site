@@ -2,14 +2,12 @@ import colors from 'tailwindcss/colors'
 import { formatHex } from 'culori'
 import path from "path";
 
-const uploadDir = path.join(import.meta.dirname, ".data", "file");
 const { env } = process;
-var host = `https://${env.DOMAIN}`
-if(env.NODE_ENV == "development") {
-  env.PORT++
-  host = `http://localhost:${env.PORT}`
-}
-
+const isDev = env.NODE_ENV === "development"
+const dataDir = path.join(import.meta.dirname, isDev ? ".data-dev" : ".data");
+const uploadDir = path.join(dataDir, "file");
+const dbPath = path.join(dataDir, env.DB_NAME || "database.db");
+const host = isDev ? `http://localhost:${env.PORT}` : `https://${env.DOMAIN}`
 const tailwindColor = {} as Record<string, string>
 for (const [k, v] of Object.entries(colors)) {
   if (v?.['500']) tailwindColor[k] = formatHex(v['500']) as string
@@ -48,7 +46,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    dbPath: env.DB_PATH,
+    dbPath: dbPath,
     ownerEmail: env.OWNER_EMAIL,
     ownerName: env.OWNER_NAME,
     ownerPassword: env.OWNER_PASSWORD,
@@ -173,7 +171,7 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "theme-color", content: "#111827" }
       ],
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.ico" }],
     },
   },
 });

@@ -1,15 +1,11 @@
 <template>
   <section class="wishes-page ui-page ui-page--wishes">
-    <div class="wishes-board ui-board reveal-up scrollbar-hidden">
-      <header class="wishes-header">
-        <div>
-          <p class="ui-heading-title">{{ t("wishes.title") }}</p>
-          <h1 class="ui-heading-subtitle">{{ t("wishes.description") }}</h1>
-        </div>
-        <NuxtLink :to="localePath('/wishes/new')" class="submit-button interactive-lift">
-          {{ t("wishes.create") }}
-        </NuxtLink>
-      </header>
+    <div class="wishes-board ui-board ui-content-board reveal-up scrollbar-hidden">
+      <PageHeader :title="t('wishes.title')" :description="t('wishes.description')" icon="mdi-heart-outline">
+        <template #actions>
+          <NuxtLink :to="localePath('/wishes/new')" class="submit-button interactive-lift">{{ t("wishes.create") }}</NuxtLink>
+        </template>
+      </PageHeader>
 
       <div
         v-if="displayedList.length"
@@ -212,6 +208,9 @@ onMounted(async () => {
   window.addEventListener("resize", scheduleLayout);
   layoutMasonry();
   observeLoadMoreTrigger();
+  void document.fonts.ready.then(() => {
+    if (masonryRef.value?.isConnected) scheduleLayout();
+  });
 });
 
 watch(
@@ -236,27 +235,17 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 @reference "../../assets/styles/tailwind.css";
 
-.wishes-board {
-  padding: 36px clamp(18px, 4vw, 44px) 44px;
-}
 
-.wishes-header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 34px;
-  text-align: center;
-}
 
-.wishes-header > div {
-  flex: 1;
-}
 
 .submit-button {
   display: inline-flex;
   min-width: 96px;
-  height: 38px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  text-decoration: none;
   align-items: center;
   justify-content: center;
   background: #8b55ff;
@@ -283,17 +272,11 @@ onBeforeUnmount(() => {
   display: grid;
   place-items: start;
   padding: 42px;
-  border-radius: 8px;
+  border-radius: 18px;
   background: rgb(255 255 255 / 0.18);
-  color: #5a524d;
+  color: rgb(var(--v-theme-on-surface) / 0.7);
   font-weight: 800;
 }
 
-@media (max-width: 640px) {
-  .wishes-header {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-  }
-}
+
 </style>

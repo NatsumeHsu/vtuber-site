@@ -10,9 +10,13 @@
 
 @layer vuetify-final;
 
-html {
+* {
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 .page-enter-active,

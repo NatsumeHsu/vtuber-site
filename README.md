@@ -41,7 +41,7 @@ Copy-Item .env.example .env
 請至少確認以下變數：
 
 - `PORT`
-- `DB_PATH`
+- `DB_NAME`
 - `SESSION_SECRET`
 - `OAUTH_GOOGLE_*`
 - `OAUTH_DISCORD_*`

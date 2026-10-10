@@ -23,7 +23,7 @@
       </header>
 
       <p
-        class="text-sm leading-relaxed wrap-break-word whitespace-pre-line text-neutral-800"
+        class="wish-message text-sm leading-relaxed wrap-break-word whitespace-pre-line text-neutral-800"
       >
         {{ postContent(item.message) }}
       </p>
@@ -163,6 +163,12 @@ function categoryColor(category?: string | null) {
 </script>
 
 <style scoped>
+.wish-message {
+  font-family: var(--font-wish);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
 .media-16x9 {
   aspect-ratio: 16 / 9;
 }

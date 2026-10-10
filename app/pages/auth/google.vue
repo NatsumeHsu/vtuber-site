@@ -1,8 +1,12 @@
 <template>
-  <code>{{ info }}</code>
+  <section class="ui-document-page">
+    <PageHeader :title="t('authGooglePage.title')" :description="t('authGooglePage.description')" icon="mdi-google" />
+    <code>{{ info }}</code>
+  </section>
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
 definePageMeta({ ssr: false }); // 避免 SSR 環境取用 window
 
 useI18nPageSeo({ pageKey: "authGooglePage", noindex: true });

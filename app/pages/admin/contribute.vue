@@ -1,14 +1,8 @@
 ﻿<template>
-  <section class="layout-container space-y-6 py-8">
-    <header class="flex flex-wrap items-center justify-between gap-3">
-      <h1 class="text-2xl font-bold">{{ t("adminContribute.title") }}</h1>
-      <div v-if="hasPerm(RoleEnum.Admin)" class="flex items-center gap-3">
-        <VBtn to="/admin/users" variant="tonal" rounded="lg">
-          {{ t("adminContribute.usersButton") }}
-        </VBtn>
-        <div class="text-sm text-neutral-800">{{ t("adminContribute.total", { total }) }}</div>
-      </div>
-    </header>
+  <section class="ui-document-page admin-page layout-container space-y-6 py-8">
+    <PageHeader :title="t('adminContribute.title')" :description="hasPerm(RoleEnum.Admin) ? t('adminContribute.total', { total }) : undefined" icon="mdi-clipboard-check-outline">
+      <template #actions><VBtn v-if="hasPerm(RoleEnum.Admin)" to="/admin/users" variant="tonal" rounded="lg">{{ t("adminContribute.usersButton") }}</VBtn></template>
+    </PageHeader>
 
     <div class="flex flex-wrap gap-2">
       <VBtn
@@ -247,6 +241,8 @@ function switchTab(nextTab: typeof tab.value) {
 @reference "../../assets/styles/tailwind.css";
 
 .layout-container {
-  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  padding-inline: var(--board-inset);
+  border: 1px solid rgb(var(--v-theme-on-surface) / 0.08);
+  border-radius: var(--panel-radius);
 }
 </style>
