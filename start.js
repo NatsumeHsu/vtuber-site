@@ -11,6 +11,8 @@ const configPath = path.join(USERPROFILE, ".cloudflared", `config-${NAME}.yml`);
 // tunnel.cmd delete [name]
 // tunnel.cmd list
 
+process.env.dirname = import.meta.dirname;
+
 if (fs.existsSync("D:/#/tunnel.cmd")) {
   if (!fs.existsSync(configPath))
     execSync(`D:/#/tunnel.cmd create ${NAME} ${DOMAIN} ${PORT}`);

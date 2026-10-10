@@ -78,6 +78,13 @@ const clips: ClipGroup[] = [
 </script>
 
 <style scoped lang="scss">
+.clips-page {
+  color: #000;
+}
+
+.clips-page :deep(.ui-heading-title) {
+  color: #000;
+}
 
 
 
@@ -106,7 +113,7 @@ const clips: ClipGroup[] = [
   height: 38px;
   border-radius: 12px;
   background: rgb(152 134 189 / 0.14);
-  color: rgb(var(--v-theme-on-surface) / 0.7);
+  color: rgb(0 0 0 / 0.7);
   font-size: 13px;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
@@ -115,7 +122,7 @@ const clips: ClipGroup[] = [
 .creator-heading h2 {
   min-width: 0;
   margin: 0;
-  color: rgb(var(--v-theme-on-surface));
+  color: #000;
   font-size: clamp(18px, 2vw, 22px);
   font-weight: 400;
   overflow-wrap: anywhere;

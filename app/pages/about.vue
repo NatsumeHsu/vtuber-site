@@ -79,7 +79,7 @@ const groups = [
       {
         name: "九條夏目",
         icon: "https://pbs.twimg.com/profile_images/2106750850039439360/XTqOO5PE_400x400.jpg",
-        link: "https://x.com/_natsume0304",
+        link: "https://natsumes.cc/about",
       },
     ],
   },
@@ -288,10 +288,15 @@ const donate = [
 <style scoped lang="scss">
 
 .team-page {
+  color: #000;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-bottom: 4;
+}
+
+.team-page :deep(.ui-heading-title) {
+  color: #000;
 }
 
 .team-board {
@@ -354,7 +359,7 @@ const donate = [
   margin: 0;
   padding: 0 32px 0 0;
   list-style: none;
-  color: rgb(var(--v-theme-on-surface));
+  color: #000;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -379,7 +384,7 @@ const donate = [
 
 .group-heading h2 {
   margin: 0;
-  color: rgb(var(--v-theme-on-surface));
+  color: #000;
   font-size: 24px;
   font-weight: 400;
 }
@@ -395,7 +400,7 @@ const donate = [
   padding: 3px 9px;
   border-radius: 999px;
   background: rgb(118 152 163 / 0.14);
-  color: rgb(var(--v-theme-on-surface) / 0.7);
+  color: rgb(0 0 0 / 0.7);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
 }

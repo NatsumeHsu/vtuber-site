@@ -4,10 +4,12 @@ import path from "path";
 
 const { env } = process;
 const isDev = env.NODE_ENV === "development"
-const dataDir = path.join(import.meta.dirname, isDev ? ".data-dev" : ".data");
+const dataDir = path.join(env.dirname ?? import.meta.dirname, isDev ? ".data-dev" : ".data");
+console.log(`Data directory: ${dataDir}`);
 const uploadDir = path.join(dataDir, "file");
 const dbPath = path.join(dataDir, env.DB_NAME || "database.db");
-const host = isDev ? `http://localhost:${env.PORT}` : `https://${env.DOMAIN}`
+const port = Number(env.PORT) + (isDev ? 1 : 0);
+const host = isDev ? `http://localhost:${port}` : `https://${env.DOMAIN}`
 const tailwindColor = {} as Record<string, string>
 for (const [k, v] of Object.entries(colors)) {
   if (v?.['500']) tailwindColor[k] = formatHex(v['500']) as string
@@ -23,12 +25,10 @@ export default defineNuxtConfig({
     "nuxt-twemoji",
     "@hypernym/nuxt-anime",
   ],
-  devServer: {
-    port: Number(env.PORT),
-  },
+  devServer: { port },
   devtools: { enabled: true },
   nitro: {
-    publicAssets: [{ baseURL: "/static", dir: uploadDir }],
+    preset: "node-server",
     storage: {
       static: {
         driver: "fs",
@@ -47,6 +47,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     dbPath: dbPath,
+    uploadDir,
     ownerEmail: env.OWNER_EMAIL,
     ownerName: env.OWNER_NAME,
     ownerPassword: env.OWNER_PASSWORD,
@@ -65,7 +66,7 @@ export default defineNuxtConfig({
     },
     public: {
       clientId: env.OAUTH_GOOGLE_CLIENT_ID,
-      uploadDir, uploadBase: "/static",
+      uploadBase: "/static",
     },
   },
   imports: {
