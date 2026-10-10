@@ -1,4 +1,4 @@
-import { RoleEnum } from "#shared/Enum";
+import { RoleEnum, RoleFlag } from "#shared/Enum";
 
 export default defineEventHandler(async (e) => {
   const actor = requireRole(e, RoleEnum.Admin);
@@ -23,23 +23,23 @@ export default defineEventHandler(async (e) => {
       statusMessage: "cannot change your own role",
     });
   }
-  const actorRank = actor.role;
-  const targetRank = u.role;
-  const nextRank = role;
-  if (!actorRank || !targetRank || !nextRank) {
+  const actorRank = RoleFlag[actor.role]?.value;
+  const targetRank = RoleFlag[u.role]?.value;
+  const nextRank = RoleFlag[role]?.value;
+  if (actorRank === undefined || targetRank === undefined || nextRank === undefined) {
     throw createError({
       statusCode: 403,
       statusMessage: "forbidden role value",
     });
   }
 
-  if (targetRank > actorRank) {
+  if (targetRank >= actorRank) {
     throw createError({
       statusCode: 403,
       statusMessage: "forbidden target role",
     });
   }
-  if (nextRank > actorRank) {
+  if (nextRank >= actorRank) {
     throw createError({
       statusCode: 403,
       statusMessage: "forbidden assign role",
