@@ -3,18 +3,48 @@
     <div class="home-board ui-board scrollbar-hidden">
       <section class="hero-visual reveal-up" aria-labelledby="hero-title">
         <div class="hero-artwork">
-          <img src="/hero.png" :alt="t('home.heroAlt')" class="hero-image" fetchpriority="high" />
+          <img
+            src="/hero.png"
+            :alt="t('home.heroAlt')"
+            class="hero-image"
+            fetchpriority="high"
+          />
         </div>
         <div class="hero-content">
           <div class="hero-copy">
-            <p class="hero-badge">{{ t("home.badge") }}</p>
+            <div class="hero-top-row">
+              <p class="hero-badge">{{ t("home.badge") }}</p>
+              <div class="hero-actions">
+                <a
+                  href="#news"
+                  class="hero-action interactive-lift"
+                  @click.prevent="scrollToNews"
+                >
+                  <span>{{ t("home.ctaLightbox") }}</span>
+                  <VIcon icon="mdi-chevron-down" size="20" aria-hidden="true" />
+                </a>
+                <NuxtLink
+                  :to="localePath('/wishes/new')"
+                  class="hero-action interactive-lift"
+                >
+                  <span>{{ t("home.ctaSubmit") }}</span>
+                  <VIcon icon="mdi-arrow-right" size="20" aria-hidden="true" />
+                </NuxtLink>
+                <a
+                  href="https://drive.google.com/drive/u/1/folders/1tSvIp0OLLOD_1UQ6ZrxC2ultfu2thm8Z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hero-action interactive-lift"
+                >
+                  <span>{{ t("home.ctaDrive") }}</span>
+                  <VIcon icon="mdi-open-in-new" size="20" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
             <h1 id="hero-title">{{ t("home.title") }}</h1>
             <p class="hero-description">{{ t("home.description") }}</p>
           </div>
-          <NuxtLink :to="localePath('/wishes/new')" class="hero-action interactive-lift">
-            <span>{{ t("home.ctaSubmit") }}</span>
-            <VIcon icon="mdi-arrow-right" size="20" aria-hidden="true" />
-          </NuxtLink>
+
         </div>
       </section>
 
@@ -24,10 +54,18 @@
 </template>
 
 <script setup lang="ts">
-
 const { t } = useI18n();
 const localePath = useLocalePath();
 useI18nPageSeo({ pageKey: "home" });
+
+function scrollToNews() {
+  document.getElementById("news")?.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth",
+    block: "start",
+  });
+}
 
 const features = computed(() => [
   {
@@ -103,9 +141,18 @@ const features = computed(() => [
   color: #49352d;
 }
 
+.hero-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 20px;
+}
+
 .hero-badge {
   display: inline-flex;
-  margin: 0 0 14px;
+  margin: 0;
   padding: 6px 12px;
   border: 1px solid rgb(153 107 79 / 0.2);
   border-radius: 999px;
@@ -134,6 +181,13 @@ const features = computed(() => [
   color: #796357;
   font-size: 15px;
   line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 .hero-action {
@@ -238,6 +292,11 @@ const features = computed(() => [
 }
 
 @media (max-width: 760px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .hero-copy {
     inset: 24px 18px auto;
   }
@@ -245,7 +304,5 @@ const features = computed(() => [
   .feature-grid {
     grid-template-columns: 1fr;
   }
-
-
 }
 </style>
